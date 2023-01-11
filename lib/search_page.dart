@@ -10,6 +10,8 @@ class SreachPage extends StatefulWidget {
 class _SreachPageState extends State<SreachPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Text("Milan"),
+    );
   }
 }

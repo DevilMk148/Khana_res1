@@ -121,35 +121,7 @@ class Home_Page extends StatefulWidget {
 }
 
 class _Home_PageState extends State<Home_Page> {
-  // Padding(
-  // padding: const EdgeInsets.all(8.0),
-  // child: Container(
-  // height: 200,
-  // child: ListView(
-  // children: [
-  // SizedBox(height: 200,
-  // width: double.infinity,
-  // child: Carousel(
-  // dotSize: 7.0,
-  // dotColor: Color.fromRGBO(250, 240 , 240, 1),
-  // dotIncreasedColor: Color.fromRGBO(107, 0 , 0, 1),
-  // dotBgColor: Colors.transparent,
-  // dotSpacing: 15.0,
-  // dotPosition: DotPosition.bottomCenter,
-  // images:[
-  // Image.asset('assets/images/poster3.jpg',fit: BoxFit.cover,),
-  // Image.asset('assets/images/poster2.jpg',fit: BoxFit.cover,),
-  // Image.asset('assets/images/poster3.jpg',fit: BoxFit.cover,),
-  // Image.asset('assets/images/poster1.jpg',fit: BoxFit.cover,),
-  // Image.asset('assets/images/poster3.jpg',fit: BoxFit.cover,),
-  // Image.asset('assets/images/poster2.jpg',fit: BoxFit.cover,),
-  // ]
-  // ),
-  // )
-  // ],
-  // ),
-  // ),
-  // ),
+
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -411,6 +383,45 @@ class _Home_PageState extends State<Home_Page> {
         // backgroundColor: Color.fromARGB(255, 243, 187, 82),
         //   fixedColor: Color.fromARGB(255, 243, 187, 82)
       ),
+      body:
+        IndexedStack(
+          index: _selectedIndex,
+          children: [
+            SreachPage(),
+            OrderPage()
+          ],
+        )
+      //
+      // Padding(
+      // padding: const EdgeInsets.all(8.0),
+      // child: Container(
+      // height: 200,
+      // child: ListView(
+      // children: [
+      // SizedBox(height: 200,
+      // width: double.infinity,
+      // child: Carousel(
+      // dotSize: 7.0,
+      // dotColor: Color.fromRGBO(250, 240 , 240, 1),
+      // dotIncreasedColor: Color.fromRGBO(107, 0 , 0, 1),
+      // dotBgColor: Colors.transparent,
+      // dotSpacing: 15.0,
+      // dotPosition: DotPosition.bottomCenter,
+      // images:[
+      // Image.asset('assets/images/poster3.jpg',fit: BoxFit.cover,),
+      // Image.asset('assets/images/poster2.jpg',fit: BoxFit.cover,),
+      // Image.asset('assets/images/poster3.jpg',fit: BoxFit.cover,),
+      // Image.asset('assets/images/poster1.jpg',fit: BoxFit.cover,),
+      // Image.asset('assets/images/poster3.jpg',fit: BoxFit.cover,),
+      // Image.asset('assets/images/poster2.jpg',fit: BoxFit.cover,),
+      // ]
+      // ),
+      // )
+      // ],
+      // ),
+      // ),
+      // ),
+
       // body: new IndexedStack(
       //   index: _selectedIndex,
       //   children: <Widget>[
