@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
+import 'Home_Page.dart';
 import 'main.dart';
 
 class Sign_In extends StatefulWidget {
@@ -10,24 +11,28 @@ class Sign_In extends StatefulWidget {
   @override
   State<Sign_In> createState() => _Sign_InState();
 }
-class _Sign_InState extends State<Sign_In> {
 
+class _Sign_InState extends State<Sign_In> {
   String? gender;
   bool valuefirst = false;
   TextEditingController dateInput = new TextEditingController();
-  void initState(){
-    dateInput.text="";
+
+  void initState() {
+    dateInput.text = "";
     super.initState();
   }
+  String? arr,prr;
+  late String email,phone="";
+  bool pass=true;
+  TextEditingController EmailController=new TextEditingController();
+  TextEditingController phoneController=new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        body:
-        Container(
+        body: Container(
           child: Column(
             children: [
-
               Container(
                 child: Column(
                   children: [
@@ -36,17 +41,30 @@ class _Sign_InState extends State<Sign_In> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Sign Up",style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),),
-                          SizedBox(height: 7,),
-                          Text("Add ditals to Sign Up",style: TextStyle(fontSize: 14,color: Colors.white),)
+                          Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 7,
+                          ),
+                          Text(
+                            "Add ditals to Sign Up",
+                            style: TextStyle(fontSize: 14, color: Colors.white),
+                          )
                         ],
                       ),
                       height: 150,
                       decoration: BoxDecoration(
                           color: Color.fromRGBO(107, 0, 0, 1),
-                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(160),bottomLeft: Radius.circular(160),)
-                      ),
-                    ),//Sign Up text
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(160),
+                            bottomLeft: Radius.circular(160),
+                          )),
+                    ), //Sign Up text
                     Container(
                       height: 595,
                       margin: EdgeInsets.only(top: 5),
@@ -55,40 +73,66 @@ class _Sign_InState extends State<Sign_In> {
                         child: Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.only(top:8,left: 4,right: 4,bottom: 4),
                               child: TextField(
                                 decoration: InputDecoration(
-                                    border: OutlineInputBorder(                                      borderRadius: BorderRadius.circular(20)
-                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
                                     hintText: "Enter your name",
                                     labelText: "Name",
-                                    prefixIcon: Icon(Icons.person_outline)
-                                ),
+                                    prefixIcon: Icon(Icons.person_outline)),
                               ),
-                            ),//name
+                            ), //name
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(4.0),
                               child: TextField(
-                                decoration: InputDecoration(
-                                    border: OutlineInputBorder(                                      borderRadius: BorderRadius.circular(20)
+                                  controller: EmailController,
+                                  onChanged: (val){
+                                    arr=(val.length<=10)?'enter a valid email*':null;
+                                    setState(() {});
+                                    if(EmailController.text.length>10){
+                                      email=EmailController.text;
+                                      setState(() {
+
+                                      });
+                                    }
+                                  },
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(20.0)
                                     ),
-                                    hintText: "Enter your email",
-                                    labelText: "Email",
-                                    prefixIcon: Icon(Icons.email_outlined)
-                                ),
-                              ),
+                                    prefixIcon: Icon(Icons.email),
+                                    hintText: 'please enter Email',
+                                    labelText: 'Email',
+                                    errorText: arr,
+                                  )),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: TextField(
+                                controller: phoneController,
+                                onChanged: (val){
+                                  prr=(val.length<10)?'enter a valid phone number*':null;
+                                  setState(() {});
+                                  if(phoneController.text.length==10){
+                                    phone=phoneController.text;
+                                    setState(() {
+
+                                    });
+                                  }
+                                },
                                 decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(20)
-                                    ),
-                                    hintText: "Enter your Mobile Number",
-                                    labelText: "Phone",
-                                    prefixIcon: Icon(Icons.call_outlined)
-                                ),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10.0)
+                                  ),
+                                  prefixIcon: Icon(Icons.phone),
+                                  hintText: 'please enter Mobile No.',
+                                  counterText: "",
+                                  labelText: 'Phone',
+                                  errorText: prr,
+                                ),keyboardType: TextInputType.number,inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                                maxLength: 10,
                               ),
                             ),
                             Padding(
@@ -96,12 +140,13 @@ class _Sign_InState extends State<Sign_In> {
                               child: TextField(
                                 controller: dateInput,
                                 decoration: InputDecoration(
-                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
                                     ),
                                     // icon: Icon(Icons.calendar_month_outlined),
                                     labelText: "Date",
-                                    prefixIcon: Icon(Icons.date_range_outlined)
-                                ),
+                                    prefixIcon:
+                                        Icon(Icons.date_range_outlined)),
                                 onTap: () async {
                                   DateTime? pickedDate = await showDatePicker(
                                     context: context,
@@ -109,9 +154,10 @@ class _Sign_InState extends State<Sign_In> {
                                     firstDate: DateTime(2000),
                                     lastDate: DateTime(2050),
                                   );
-                                  if(pickedDate != null){
+                                  if (pickedDate != null) {
                                     setState(() {
-                                      dateInput.text= DateFormat('yyyy-MM-dd').format(pickedDate);
+                                      dateInput.text = DateFormat('yyyy-MM-dd')
+                                          .format(pickedDate);
                                     });
                                   }
                                 },
@@ -121,12 +167,12 @@ class _Sign_InState extends State<Sign_In> {
                               padding: const EdgeInsets.all(8.0),
                               child: TextField(
                                 decoration: InputDecoration(
-                                    border: OutlineInputBorder(                                      borderRadius: BorderRadius.circular(20)
-                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
                                     hintText: "Enter your Hobbies",
                                     labelText: "Hobbies",
-                                    prefixIcon: Icon(Icons.note_alt_outlined)
-                                ),
+                                    prefixIcon: Icon(Icons.note_alt_outlined)),
                               ),
                             ),
                             Padding(
@@ -135,46 +181,61 @@ class _Sign_InState extends State<Sign_In> {
                                 height: 60,
                                 decoration: BoxDecoration(
                                     color: Colors.green,
-                                    borderRadius: BorderRadius.circular(20)
-                                ),
+                                    borderRadius: BorderRadius.circular(20)),
                               ),
                             ),
-                            Row(children: [
-                              Checkbox(value: this.valuefirst, onChanged: (value){
-                                setState(() {
-                                  this.valuefirst=value!;
-                                });
-                              }),
-                              Text("Accept All"),
-                              SizedBox(width: 5,),
-                              Text("Tearm & Condition",style: TextStyle(decoration: TextDecoration.underline)),
-                            ],),
+                            Row(
+                              children: [
+                                Checkbox(
+                                    value: this.valuefirst,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        this.valuefirst = value!;
+                                      });
+                                    }),
+                                Text("Accept All"),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text("Tearm & Condition",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.underline)),
+                              ],
+                            ),
                             Padding(
                               padding: const EdgeInsets.only(top: 10),
-                              child:Container(
+                              child: Container(
                                   height: 40,
-                                  margin: EdgeInsets.only(top:20),
+                                  margin: EdgeInsets.only(top: 20),
                                   width: 250,
-                                  child:ElevatedButton(
-                                    onPressed:(){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Home_Page()));
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const Home_Page()));
                                     },
-
-                                    child: Text('SUBMIT',style: TextStyle(fontSize: 14,color: Colors.white)),
+                                    child: Text('SUBMIT',
+                                        style: TextStyle(
+                                            fontSize: 14, color: Colors.white)),
                                     style: ButtonStyle(
-                                        foregroundColor: MaterialStateProperty.all(Colors.black54),
-                                        backgroundColor: MaterialStateProperty.all(Color.fromRGBO(107, 0 , 0, 1)),
-                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(20),
-                                          side: BorderSide(color:Colors.transparent),
-                                        ))
-                                    ),
-
-                                  )
-                              ),
-
+                                        foregroundColor:
+                                            MaterialStateProperty.all(
+                                                Colors.black54),
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Color.fromRGBO(107, 0, 0, 1)),
+                                        shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          side: BorderSide(
+                                              color: Colors.transparent),
+                                        ))),
+                                  )),
                             ),
-
                           ],
                         ),
                       ),
@@ -182,35 +243,41 @@ class _Sign_InState extends State<Sign_In> {
                     Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color:Color.fromRGBO(107, 0, 0, 1)
-                        ),
+                            color: Color.fromRGBO(107, 0, 0, 1)),
                         width: 400,
                         height: 50,
-                        child:Row(
+                        child: Row(
                           children: [
                             Container(
                               margin: EdgeInsets.only(left: 70),
-                              child: Text('Already have an Account?',style: TextStyle(fontFamily: 'FontMain',fontSize: 16,color: Colors.white ),),
+                              child: Text(
+                                'Already have an Account?',
+                                style: TextStyle(
+                                    fontFamily: 'FontMain',
+                                    fontSize: 16,
+                                    color: Colors.white),
+                              ),
                             ), //line before login
                             Container(
                                 margin: EdgeInsets.only(left: 5),
                                 child: new GestureDetector(
-                                  onTap: (){
-
-                                  },
-                                  child: Text('Login',style: TextStyle(fontFamily: 'FontMain',fontSize: 16,color: Color.fromRGBO(254, 132 , 132, 1) ),),
-                                )
-
-                            ), // login text
+                                  onTap: () {},
+                                  child: Text(
+                                    'Login',
+                                    style: TextStyle(
+                                        fontFamily: 'FontMain',
+                                        fontSize: 16,
+                                        color:
+                                            Color.fromRGBO(254, 132, 132, 1)),
+                                  ),
+                                )), // login text
                           ],
-                        )
-                    ),
+                        )),
                   ],
                 ),
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }
