@@ -79,6 +79,7 @@ class _Home_PageState extends State<Home_Page> {
               Container(
                 color: Color.fromRGBO(250, 240, 240, 1),
                 child: Column(
+
                   children: [
                     Container(
                       height: 50,
