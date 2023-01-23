@@ -36,8 +36,8 @@ class _SlpashScreenState extends State<SlpashScreen> {
           children: [
         Center(
           child: Container(
-          width: 195,
-          height: 145,
+          width: 175,
+          height: 125,
           // color: Colors.redAccent,
           child: Image(
             image: AssetImage('assets/images/khana_png.png'),
@@ -46,12 +46,13 @@ class _SlpashScreenState extends State<SlpashScreen> {
         ), //Logo image
         Center(
           child: Container(
-            width: 200,
+            width: 180,
             height: 20,
-            margin: EdgeInsets.only(left: 22),
+            // color: Colors.black12,
+            margin: EdgeInsets.only(left: 21),
             child: Text("खाना से खाना लो, ओऱ खाते ऱहो !",
                 style:
-                TextStyle(fontSize: 16, color: Color.fromARGB(107, 0, 0, 1))),
+                TextStyle(fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
           ),
         ),]),
     );

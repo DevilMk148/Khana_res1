@@ -20,7 +20,8 @@ class _Home_PageState extends State<Home_Page> {
     return Scaffold(
         backgroundColor: Color.fromRGBO(250, 240, 240, 1),
         appBar: AppBar(
-          title: Text("Khaha Restaurant"),
+          elevation: 0,
+          title: Text("Khana Restaurant"),
           // Row(
           //   children: [
           //     Container(
@@ -457,7 +458,7 @@ class _Home_PageState extends State<Home_Page> {
                 icon: Icon(
                   Icons.fastfood,
                 ),
-                label: 'Coldrinks'),
+                label: 'Menu'),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
