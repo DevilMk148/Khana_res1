@@ -86,47 +86,51 @@ class _SreachPageState extends State<SreachPage> {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage('assets/images/fast.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 1),
-                                    ),
-                                    Text("Breakfast",style: TextStyle(color: Colors.white),)
-                                  ],
+                              GestureDetector(
+                                child: Container(
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundImage:
+                                            AssetImage('assets/images/fast.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 1),
+                                      ),
+                                      Text("Breakfast",style: TextStyle(color: Colors.white),)
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                  ),
+                                  width: 120,
+                                  height: 50,
+                                  margin: EdgeInsets.only(left: 20),
                                 ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromRGBO(107, 0, 0, 1),
-                                ),
-                                width: 120,
-                                height: 50,
-                                margin: EdgeInsets.only(left: 20),
                               ),
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage('assets/images/lunch.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 0),
-                                    ),
-                                    Text("Lunch")
-                                  ],
+                              GestureDetector(
+                                child: Container(
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundImage:
+                                            AssetImage('assets/images/lunch.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 0),
+                                      ),
+                                      Text("Lunch")
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color.fromRGBO(107, 0, 0, 0.5),
+                                  ),
+                                  width: 120,
+                                  height: 50,
+                                  margin: EdgeInsets.only(left: 20),
                                 ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromRGBO(107, 0, 0, 0.5),
-                                ),
-                                width: 120,
-                                height: 50,
-                                margin: EdgeInsets.only(left: 20),
                               ),
-                              Container(
+                              GestureDetector(child:Container(
                                 child: Row(
                                   mainAxisAlignment:
                                   MainAxisAlignment.spaceEvenly,
@@ -145,26 +149,28 @@ class _SreachPageState extends State<SreachPage> {
                                 width: 120,
                                 height: 50,
                                 margin: EdgeInsets.only(left: 20),
-                              ),
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    CircleAvatar(
-                                      backgroundImage:
-                                      AssetImage('assets/images/sweets.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 0),
-                                    ),
-                                    Text("Dessert")
-                                  ],
+                              ),),
+                              GestureDetector(
+                                child: Container(
+                                  child: Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundImage:
+                                        AssetImage('assets/images/sweets.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 0),
+                                      ),
+                                      Text("Dessert")
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color.fromRGBO(107, 0, 0, 0.5),
+                                  ),
+                                  width: 120,
+                                  height: 50,
+                                  margin: EdgeInsets.only(left: 20),
                                 ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromRGBO(107, 0, 0, 0.5),
-                                ),
-                                width: 120,
-                                height: 50,
-                                margin: EdgeInsets.only(left: 20),
                               ),
                             ],
                           ),
@@ -172,7 +178,6 @@ class _SreachPageState extends State<SreachPage> {
                       ],
                     ),
                   ),
-                  Container(),
                 ],
               ),
             ),
