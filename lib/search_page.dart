@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'order_page.dart';
+
 class SreachPage extends StatefulWidget {
   const SreachPage({Key? key}) : super(key: key);
 
@@ -15,6 +17,429 @@ class _SreachPageState extends State<SreachPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: Text("Khana Restaurant"),
+        // Row(
+        //   children: [
+        //     Container(
+        //       color: Colors.black,
+        //       width: 230,
+        //       height: 50,
+        //       alignment: Alignment.center,
+        //       child: Text("Khana Restaurant"),
+        //     ),
+        //     Container(
+        //       color: Colors.red,
+        //       width: 50,
+        //       height: 50,
+        //       child: Icon(Icons.add),
+        //     ),
+        //   ],
+        // ),
+        centerTitle: true,
+        backgroundColor: Color.fromRGBO(107, 0, 0, 1),
+      ),
+      drawer: Drawer(
+        backgroundColor: Color.fromRGBO(250, 240, 240, 1),
+        child: Column(
+          children: [
+            Container(
+              width: 400,
+              height: 180,
+              child: DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(107, 0, 0, 1),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 75,
+                      // color: Colors.redAccent,
+                      child: Image(
+                        image: AssetImage('assets/images/khana_white.png'),
+                      ),
+                    ), //logo image
+                    Container(
+                      width: 130,
+                      height: 20,
+                      // color: Colors.redAccent,
+                      margin: EdgeInsets.only(left: 25),
+                      child: Text("खाना से खाना लो, ओऱ खाते ऱहो !",
+                          style: TextStyle(fontSize: 9, color: Colors.white)),
+                    ), //slogan for app
+                  ],
+                ),
+              ),
+            ), //h
+            Container(
+              color: Color.fromRGBO(250, 240, 240, 1),
+              child: Column(
+
+                children: [
+                  Container(
+                    height: 48,
+                    width: 285,
+                    child: TextButton.icon(
+                        style: TextButton.styleFrom(
+                          alignment: Alignment(-0.9, 0),
+                          textStyle: TextStyle(color: Colors.red),
+                          backgroundColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        onPressed: () => {},
+                        icon: Icon(
+                          Icons.person_outline,
+                          size: 35,
+                          color: Color.fromRGBO(107, 0, 0, 1),
+                        ),
+                        label: Text(
+                          "My Account",
+                          style: TextStyle(
+                              color: Color.fromRGBO(107, 0, 0, 1),
+                              fontSize: 17),
+                        )),
+                    margin: EdgeInsets.only(bottom: 7),
+                  ), //my account field
+                  SizedBox(
+                      height: 1,
+                      width: 280,
+                      child:
+                      ColoredBox(color: Color.fromRGBO(107, 0, 0, 0.2))),
+                  Container(
+                    width: 400,
+                    height: 160,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.menu_book_outlined,
+                                size: 25,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Menu",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.local_offer_outlined,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Deals & Offers",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.card_giftcard_outlined,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Daily Offers",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.directions_bike_outlined,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Deliver On Bike",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                      height: 1,
+                      width: 280,
+                      child:
+                      ColoredBox(color: Color.fromRGBO(107, 0, 0, 0.2))),
+                  Container(
+                    width: 400,
+                    height: 130,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.share_location,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Track Order",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.history_toggle_off,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Order History",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.account_balance_wallet_outlined,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Khana's Wallet",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                      height: 1,
+                      width: 280,
+                      child:
+                      ColoredBox(color: Color.fromRGBO(107, 0, 0, 0.2))),
+                  Container(
+                    width: 400,
+                    height: 160,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.feedback_outlined,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Feedback",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.note_alt_outlined,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Terms & Conditions",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.headset_mic_outlined,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Contact Us",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                        Container(
+                          height: 38,
+                          width: 285,
+                          child: TextButton.icon(
+                              style: TextButton.styleFrom(
+                                alignment: Alignment(-0.9, 0),
+                                textStyle: TextStyle(color: Colors.red),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () => {},
+                              icon: Icon(
+                                Icons.settings,
+                                size: 27,
+                                color: Color.fromRGBO(107, 0, 0, 1),
+                              ),
+                              label: Text(
+                                "Settings",
+                                style: TextStyle(
+                                    color: Color.fromRGBO(107, 0, 0, 1),
+                                    fontSize: 16),
+                              )),
+                          margin: EdgeInsets.only(left: 10),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ) // eader of drawer
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -195,6 +620,8 @@ class _SreachPageState extends State<SreachPage> {
                                 fontSize: 20,
                                 color: Color.fromRGBO(107, 0, 0, 1))),
                         InkWell(
+                          onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage()));
+                          },
                           child: Container(
                             child: Row(
                               children: [
@@ -220,148 +647,288 @@ class _SreachPageState extends State<SreachPage> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          height: 200,
-                          width: 200,
+                          height: 220,
+                          width: 240,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: Colors.red,
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/food10.jpeg'),
-                                  fit: BoxFit.cover)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-                                    Text("Rs.550",style: TextStyle(color: Colors.white)),
-                                  ],
-                                ),
-
-                                height: 60,
-                                width: 200,
-                                alignment: Alignment.bottomCenter,
-                                decoration: BoxDecoration(
-                                  color: Colors.black54,
-                                  borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                                ),
                               ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Container(
-                            height: 200,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.green,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/images/food5.jpeg'),
-                                    fit: BoxFit.cover),
-                            ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text("Burger",style: TextStyle(fontSize: 20,),),
-                                    Text("Rs.550",),
-                                  ],
-                                ),
-
-                                height: 60,
-                                width: 200,
-                                alignment: Alignment.bottomCenter,
-                                decoration: BoxDecoration(
-                                  color: Colors.white60,
-                                  borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Container(
-                            child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
+                          child: Column(children: [
                             Container(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
+                              color: Colors.green,
+                              image: DecorationImage(
+                                  image: AssetImage('assets/images/food_p1.jpg'),
+                                  fit: BoxFit.cover),
+                            ),
+
+                                child: null,
+                            width: 240,
+                            height: 150,),
+                            Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-                                  Text("Rs.550",style: TextStyle(color: Colors.white)),
-                                ],
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
+                                      Text("Rs.550",style: TextStyle(color: Colors.white)),
+                                    ],
+                                  ),
+                                  SizedBox(width: 40,),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    child: Text('Order',
+                                        style: TextStyle(
+                                            fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
+                                    style: ButtonStyle(
+                                        foregroundColor:
+                                        MaterialStateProperty.all(
+                                            Colors.black54),
+                                        backgroundColor:
+                                        MaterialStateProperty.all(
+                                            // Color.fromRGBO(107, 0, 0, 1)
+                                          Colors.white
+                                        ),
+                                        shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius:
+                                              BorderRadius.circular(10),
+                                              side: BorderSide(
+                                                  color: Colors.transparent),
+                                            ))),
+                                  )                                ],
                               ),
-                              height: 60,
-                              width: 200,
+
+                              height: 70,
+                              width: 250,
                               alignment: Alignment.bottomCenter,
                               decoration: BoxDecoration(
                                 color: Color.fromRGBO(107, 0, 0, 0.6),
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                                borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
                               ),
                             ),
-                          ],
-                        ),
-                            height: 200,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.blue,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/images/food7.jpeg'),
-                                    fit: BoxFit.cover))
+                          ],)
                         ),
                         SizedBox(
                           width: 10,
                         ),
                         Container(
-                            child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text("Salad",style: TextStyle(fontSize: 20),),
-                                  Text("Rs.350"),
-                                ],
-                              ),
-                              height: 60,
-                              width: 200,
-                              alignment: Alignment.bottomCenter,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(250, 240, 240, 0.7),
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                              ),
-                            ),
-                          ],
-                        ),
-
-
-                            height: 200,
-                            width: 200,
+                            height: 220,
+                            width: 240,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.orange,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/images/food2.jpeg'),
-                                    fit: BoxFit.cover))),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
+                                  color: Colors.green,
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/images/food_p1.jpg'),
+                                      fit: BoxFit.cover),
+                                ),
+
+                                child: null,
+                                width: 240,
+                                height: 150,),
+                              Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Veg-Pizza",style: TextStyle(fontSize: 20,color: Colors.white),),
+                                        Text("Rs.550",style: TextStyle(color: Colors.white)),
+                                      ],
+                                    ),
+                                    SizedBox(width: 40,),
+                                    ElevatedButton(
+                                      onPressed: () {},
+                                      child: Text('Order',
+                                          style: TextStyle(
+                                              fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
+                                      style: ButtonStyle(
+                                          foregroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.black54),
+                                          backgroundColor:
+                                          MaterialStateProperty.all(
+                                            // Color.fromRGBO(107, 0, 0, 1)
+                                              Colors.white
+                                          ),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                BorderRadius.circular(10),
+                                                side: BorderSide(
+                                                    color: Colors.transparent),
+                                              ))),
+                                    )                                ],
+                                ),
+
+                                height: 70,
+                                width: 250,
+                                alignment: Alignment.bottomCenter,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(107, 0, 0, 0.6),
+                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                                ),
+                              ),
+                            ],)
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                            height: 220,
+                            width: 240,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
+                                  color: Colors.green,
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/images/food_p1.jpg'),
+                                      fit: BoxFit.cover),
+                                ),
+
+                                child: null,
+                                width: 240,
+                                height: 150,),
+                              Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
+                                        Text("Rs.550",style: TextStyle(color: Colors.white)),
+                                      ],
+                                    ),
+                                    SizedBox(width: 40,),
+                                    ElevatedButton(
+                                      onPressed: () {},
+                                      child: Text('Order',
+                                          style: TextStyle(
+                                              fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
+                                      style: ButtonStyle(
+                                          foregroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.black54),
+                                          backgroundColor:
+                                          MaterialStateProperty.all(
+                                            // Color.fromRGBO(107, 0, 0, 1)
+                                              Colors.white
+                                          ),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                BorderRadius.circular(10),
+                                                side: BorderSide(
+                                                    color: Colors.transparent),
+                                              ))),
+                                    )                                ],
+                                ),
+
+                                height: 70,
+                                width: 250,
+                                alignment: Alignment.bottomCenter,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(107, 0, 0, 0.6),
+                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                                ),
+                              ),
+                            ],)
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                            height: 220,
+                            width: 240,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
+                                  color: Colors.green,
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/images/food_p1.jpg'),
+                                      fit: BoxFit.cover),
+                                ),
+
+                                child: null,
+                                width: 240,
+                                height: 150,),
+                              Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("7Chees Pizza",style: TextStyle(fontSize: 20,color: Colors.white),),
+                                        Text("Rs.550",style: TextStyle(color: Colors.white)),
+                                      ],
+                                    ),
+                                    SizedBox(width: 25,),
+                                    ElevatedButton(
+                                      onPressed: () {},
+                                      child: Text('Order',
+                                          style: TextStyle(
+                                              fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
+                                      style: ButtonStyle(
+                                          foregroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.black54),
+                                          backgroundColor:
+                                          MaterialStateProperty.all(
+                                            // Color.fromRGBO(107, 0, 0, 1)
+                                              Colors.white
+                                          ),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                BorderRadius.circular(10),
+                                                side: BorderSide(
+                                                    color: Colors.transparent),
+                                              ))),
+                                    )                                ],
+                                ),
+
+                                height: 70,
+                                width: 250,
+                                alignment: Alignment.bottomCenter,
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(107, 0, 0, 0.6),
+                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                                ),
+                              ),
+                            ],)
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
                       ],
                     ),
                   )
