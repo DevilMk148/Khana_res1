@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'detail.dart';
+
 
 class OrderPage extends StatefulWidget {
 const OrderPage({Key? key}) : super(key: key);
@@ -34,8 +36,8 @@ class _OrderPageState extends State<OrderPage>
               child: Text('BreakFast',style: TextStyle(fontSize: 12),),
             ),
             Tab(
-              icon: Icon(Icons.dinner_dining_rounded),
-              child: Text('Dinner',style: TextStyle(fontSize: 12),),
+              icon: Icon(Icons.icecream_rounded),
+              child: Text('Dessert',style: TextStyle(fontSize: 12),),
 
             ),
             Tab(
@@ -44,8 +46,8 @@ class _OrderPageState extends State<OrderPage>
 
             ),
             Tab(
-              icon: Icon(Icons.icecream_rounded),
-              child: Text('Dessert',style: TextStyle(fontSize: 12),),
+              icon: Icon(Icons.dinner_dining_rounded),
+              child: Text('Dinner',style: TextStyle(fontSize: 12),),
 
             ),
           ],
@@ -476,16 +478,16 @@ class _OrderPageState extends State<OrderPage>
         controller: _tabController,
         children: const <Widget>[
           Center(
-            child: BreakFast(),
+            child:Home(),
           ),
           Center(
-            child: Dinner(),
+            child: Dessert(),
           ),
           Center(
             child: Lunch(),
           ),
           Center(
-            child: Dessert(),
+            child: Dinner(),
           ),
         ],
       ),
@@ -493,260 +495,6 @@ class _OrderPageState extends State<OrderPage>
   }
 }
 
-class BreakFast extends StatefulWidget {
-  const BreakFast({Key? key}) : super(key: key);
-
-  @override
-  State<BreakFast> createState() => _BreakFastState();
-}
-
-class _BreakFastState extends State<BreakFast> {
-  List<String> data = ["Maegherita","Maegherita", "Veg-Pizza", "Chees Corn", "7Chees Pizza","Maegherita", "Veg-Pizza", "Chees Corn", "7Chees Pizza",];
-  List<String> price = ["Rs.350", "Rs.300", "Rs.550", "Rs.550", "Rs.450","Rs.350", "Rs.300", "Rs.550", "Rs.450",];
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.count(
-      crossAxisCount: 2,
-      // crossAxisSpacing: 10.0,
-      // mainAxisSpacing: 10.0,
-      shrinkWrap: true,
-      children: List.generate(9, (index) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 10,left: 5,right: 5,bottom: 5),
-          child:Container(
-            height: 200,
-            width: 170,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.red,
-                image: DecorationImage(
-                    image: AssetImage('assets/images/food10.jpeg'),
-                    fit: BoxFit.cover)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-                      Text(data[index],style: TextStyle(fontSize: 20,color: Colors.white),),
-                      Text(price[index],style: TextStyle(color: Colors.white)),
-                    ],
-                  ),
-
-                  height: 60,
-                  width: 200,
-                  alignment: Alignment.bottomCenter,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(107, 0, 0, 0.6),
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-        );
-      },),
-    ),
-    );
-    // return                   SingleChildScrollView(
-    //   scrollDirection: Axis.vertical,
-    //   child: Column(
-    //     children: [
-    //       SizedBox(height: 10,),
-    //       Row(children: [
-    //         SizedBox(width: 5,),
-    //         Container(
-    //           height: 200,
-    //           width: 170,
-    //           decoration: BoxDecoration(
-    //               borderRadius: BorderRadius.circular(20),
-    //               color: Colors.red,
-    //               image: DecorationImage(
-    //                   image: AssetImage('assets/images/food10.jpeg'),
-    //                   fit: BoxFit.cover)),
-    //           child: Column(
-    //             mainAxisAlignment: MainAxisAlignment.end,
-    //             children: [
-    //               Container(
-    //                 child: Column(
-    //                   mainAxisAlignment: MainAxisAlignment.center,
-    //                   crossAxisAlignment: CrossAxisAlignment.center,
-    //                   children: [
-    //                     Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-    //                     Text("Rs.550",style: TextStyle(color: Colors.white)),
-    //                   ],
-    //                 ),
-    //
-    //                 height: 60,
-    //                 width: 200,
-    //                 alignment: Alignment.bottomCenter,
-    //                 decoration: BoxDecoration(
-    //                   color: Color.fromRGBO(107, 0, 0, 0.6),
-    //                   borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //         SizedBox(width: 10,),
-    //         Container(
-    //           height: 200,
-    //           width: 170,
-    //           decoration: BoxDecoration(
-    //             borderRadius: BorderRadius.circular(20),
-    //             color: Colors.green,
-    //             image: DecorationImage(
-    //                 image: AssetImage('assets/images/food_p1.jpg'),
-    //                 fit: BoxFit.cover),
-    //           ),
-    //           child: Column(
-    //             mainAxisAlignment: MainAxisAlignment.end,
-    //             children: [
-    //               Container(
-    //                 child: Column(
-    //                   mainAxisAlignment: MainAxisAlignment.center,
-    //                   crossAxisAlignment: CrossAxisAlignment.center,
-    //                   children: [
-    //                     Text("Veg-Pizza",style: TextStyle(fontSize: 20,color: Colors.white),),
-    //                     Text("Rs.550",style: TextStyle(color: Colors.white)),
-    //                   ],
-    //                 ),
-    //
-    //                 height: 60,
-    //                 width: 200,
-    //                 alignment: Alignment.bottomCenter,
-    //                 decoration: BoxDecoration(
-    //                   color: Color.fromRGBO(107, 0, 0, 0.6),
-    //                   borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //         SizedBox(width: 5,),
-    //       ],),
-    //       SizedBox(height: 10,),
-    //       Row(children: [
-    //         SizedBox(width: 5,),
-    //         Container(
-    //             child: Column(
-    //               mainAxisAlignment: MainAxisAlignment.end,
-    //               children: [
-    //                 Container(
-    //                   child: Column(
-    //                     mainAxisAlignment: MainAxisAlignment.center,
-    //                     crossAxisAlignment: CrossAxisAlignment.center,
-    //                     children: [
-    //                       Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-    //                       Text("Rs.550",style: TextStyle(color: Colors.white)),
-    //                     ],
-    //                   ),
-    //                   height: 60,
-    //                   width: 200,
-    //                   alignment: Alignment.bottomCenter,
-    //                   decoration: BoxDecoration(
-    //                     color: Color.fromRGBO(107, 0, 0, 0.6),
-    //                     borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-    //                   ),
-    //                 ),
-    //               ],
-    //             ),
-    //             height: 200,
-    //             width: 170,
-    //             decoration: BoxDecoration(
-    //                 borderRadius: BorderRadius.circular(20),
-    //                 color: Colors.blue,
-    //                 image: DecorationImage(
-    //                     image: AssetImage('assets/images/food7.jpeg'),
-    //                     fit: BoxFit.cover))
-    //         ),
-    //         SizedBox(width: 10,),
-    //         Container(
-    //             child: Column(
-    //               mainAxisAlignment: MainAxisAlignment.end,
-    //               children: [
-    //                 Container(
-    //                   child: Column(
-    //                     mainAxisAlignment: MainAxisAlignment.center,
-    //                     crossAxisAlignment: CrossAxisAlignment.center,
-    //                     children: [
-    //                       Text("7Chees Pizza",style: TextStyle(fontSize: 20,color: Colors.white),),
-    //                       Text("Rs.550",style: TextStyle(color: Colors.white)),
-    //                     ],
-    //                   ),
-    //                   height: 60,
-    //                   width: 200,
-    //                   alignment: Alignment.bottomCenter,
-    //                   decoration: BoxDecoration(
-    //                     color: Color.fromRGBO(107,0,0, 0.6),
-    //                     borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-    //                   ),
-    //                 ),
-    //               ],
-    //             ),
-    //             height: 200,
-    //             width: 170,
-    //             decoration: BoxDecoration(
-    //                 borderRadius: BorderRadius.circular(20),
-    //                 color: Colors.orange,
-    //                 image: DecorationImage(
-    //                     image: AssetImage('assets/images/food_p2.jpg'),
-    //                     fit: BoxFit.cover))),
-    //         SizedBox(width: 5,),
-    //
-    //       ],),
-    //       SizedBox(height: 10,),
-    //       Row(children: [
-    //         SizedBox(width: 5,),
-    //         Container(
-    //           height: 200,
-    //           width: 170,
-    //           decoration: BoxDecoration(
-    //               borderRadius: BorderRadius.circular(20),
-    //               color: Colors.red,
-    //               image: DecorationImage(
-    //                   image: AssetImage('assets/images/food10.jpeg'),
-    //                   fit: BoxFit.cover)),
-    //           child: Column(
-    //             mainAxisAlignment: MainAxisAlignment.end,
-    //             children: [
-    //               Container(
-    //                 child: Column(
-    //                   mainAxisAlignment: MainAxisAlignment.center,
-    //                   crossAxisAlignment: CrossAxisAlignment.center,
-    //                   children: [
-    //                     Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-    //                     Text("Rs.550",style: TextStyle(color: Colors.white)),
-    //                   ],
-    //                 ),
-    //
-    //                 height: 60,
-    //                 width: 200,
-    //                 alignment: Alignment.bottomCenter,
-    //                 decoration: BoxDecoration(
-    //                   color: Color.fromRGBO(107, 0, 0, 0.6),
-    //                   borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //         SizedBox(width: 10,)
-    //       ],),
-    //       SizedBox(height: 10,),
-    //     ],
-    //   ),
-    // );
-
-  }
-}
 
 
 class Dinner extends StatefulWidget {
@@ -757,60 +505,37 @@ class Dinner extends StatefulWidget {
 }
 
 class _DinnerState extends State<Dinner> {
-  List<String> data = ["Maegherita", "Chees Corn", "7Chees Pizza","Maegherita", "Veg-Pizza", "Chees Corn", "7Chees Pizza","Maegherita", "Veg-Pizza", "Chees Corn", "7Chees Pizza",];
-  List<String> price = ["Rs.350", "Rs.550", "Rs.450","Rs.350", "Rs.300", "Rs.550", "Rs.450","Rs.350", "Rs.300", "Rs.550", "Rs.450",];
 
+  var grid = gridview(lst: [],);
+  @override
+  void initState() {
+    super.initState();
+    grid = gridview(lst: dinner);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.count(
-        crossAxisCount: 2,
-        // crossAxisSpacing: 10.0,
-        // mainAxisSpacing: 10.0,
-        shrinkWrap: true,
-        children: List.generate(11, (index) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 10,left: 5,right: 5,bottom: 5),
-            child:Container(
-              height: 200,
-              width: 170,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.red,
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/food10.jpeg'),
-                      fit: BoxFit.cover)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        // Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-                        Text(data[index],style: TextStyle(fontSize: 20,color: Colors.white),),
-                        Text(price[index],style: TextStyle(color: Colors.white)),
-                      ],
-                    ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color.fromRGBO(107, 0, 0, 0.1),
 
-                    height: 60,
-                    width: 200,
-                    alignment: Alignment.bottomCenter,
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(107, 0, 0, 0.6),
-                      borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                    ),
-                  ),
-                ],
-              ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(height: MediaQuery.of(context).size.height * .001,
+              color: Colors.white60,
             ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.005,),
+            Container(
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.height * .720,
+                child: grid
 
-          );
-        },),
+            )],
+        ),
       ),
-    );  }
+    );
+  }
 }
 
 class Lunch extends StatefulWidget {
@@ -821,60 +546,40 @@ class Lunch extends StatefulWidget {
 }
 
 class _LunchState extends State<Lunch> {
-  List<String> data = ["Maegherita", "Veg-Pizza","Maegherita", "Veg-Pizza", "Chees Corn", "7Chees Pizza","Maegherita", "Veg-Pizza", "Chees Corn", "7Chees Pizza",];
-  List<String> price = ["Rs.350", "Rs.300", "Rs.550", "Rs.300", "Rs.550", "Rs.450","Rs.350", "Rs.300", "Rs.550", "Rs.450",];
+
+  var grid = gridview(lst: [],);
+  @override
+  void initState() {
+    super.initState();
+    grid = gridview(lst: lunch);
+  }
+
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.count(
-        crossAxisCount: 2,
-        // crossAxisSpacing: 10.0,
-        // mainAxisSpacing: 10.0,
-        shrinkWrap: true,
-        children: List.generate(10, (index) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 10,left: 5,right: 5,bottom: 5),
-            child:Container(
-              height: 200,
-              width: 170,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.red,
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/food10.jpeg'),
-                      fit: BoxFit.cover)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        // Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-                        Text(data[index],style: TextStyle(fontSize: 20,color: Colors.white),),
-                        Text(price[index],style: TextStyle(color: Colors.white)),
-                      ],
-                    ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color.fromRGBO(107, 0, 0, 0.1),
 
-                    height: 60,
-                    width: 200,
-                    alignment: Alignment.bottomCenter,
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(107, 0, 0, 0.6),
-                      borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                    ),
-                  ),
-                ],
-              ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(height: MediaQuery.of(context).size.height * .001,
+              color: Colors.white60,
             ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.005,),
+            Container(
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.height * .720,
+                child: grid
 
-          );
-        },),
+            )],
+        ),
       ),
-    );  }
+    );
+
+  }
 }
 
 class Dessert extends StatefulWidget {
@@ -885,61 +590,248 @@ class Dessert extends StatefulWidget {
 }
 
 class _DessertState extends State<Dessert> {
-  List<String> data = ["Maegherita", "Veg-Pizza", "Veg-Pizza", "Chees Corn", "7Chees Pizza","Maegherita", "Veg-Pizza", "Chees Corn", "7Chees Pizza",];
-  List<String> price = ["Rs.350", "Rs.300", "Rs.550", "Rs.450", "Rs.450","Rs.350", "Rs.300", "Rs.550", "Rs.450",];
+
+
+  var grid = gridview(lst: [],);
+  @override
+  void initState() {
+    super.initState();
+    grid = gridview(lst: dessert);
+  }
 
 
   @override
   Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color.fromRGBO(107, 0, 0, 0.1),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(height: MediaQuery.of(context).size.height * .001,
+              color: Colors.white60,
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.005,),
+            Container(
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.height * .720,
+                child: grid
+
+            )],
+        ),
+      ),
+    );
+
+  }
+}
+
+
+
+
+List<Map> breakfast = [{'img':'assets/images/ItalianRusoo.png','name':'Italian Rusoo','dis':'254m','Price':1050},
+  {'img':'assets/images/sandwich.png','name':'Sand Wich','dis':'250m','Price':550},
+  {'img':'assets/images/food4.jpeg','name':'Veg Salad','dis':'220m','Price':330},
+  {'img':'assets/images/sandwich.png','name':'Sand Wich','dis':'150m','Price':550},
+  {'img':'assets/images/ItalianRusoo.png','name':'Italian Rusoo','dis':'254m','Price':1050},
+  {'img':'assets/images/food4.jpeg','name':'Veg Salad','dis':'160m','Price':330},];
+
+List<Map> dessert = [{'img':'assets/images/Chocolava.png','name':'Choco Lava','dis':'254m','Price':770},
+  {'img':'assets/images/Chocochees.png','name':'Choco Chees','dis':'254m','Price':850},
+  {'img':'assets/images/Donuts.png','name':'Donuts','dis':'254m','Price':550},
+  {'img':'assets/images/Nutpie.png','name':'Nut Pie','dis':'254m','Price':650},
+  {'img':'assets/images/Chocochees.png','name':'Choco Chees','dis':'254m','Price':850},
+  {'img':'assets/images/Donuts.png','name':'Donuts','dis':'254m','Price':550},];
+
+List<Map> lunch = [{'img':'assets/images/fries.png','name':'French Fries','dis':'254m','Price':350},
+  {'img':'assets/images/HamBurger.png','name':'Ham Burger','dis':'254m','Price':550},
+  {'img':'assets/images/Italiannochos.png','name':'Italian Nachos','dis':'254m','Price':950},
+  {'img':'assets/images/fries.png','name':'Fries','dis':'254m','Price':350},
+  {'img':'assets/images/Italiannochos.png','name':'Italian Nachos','dis':'254m','Price':950},
+  {'img':'assets/images/Burgerspring.png','name':'Burger Spring','dis':'254m','Price':450},];
+
+List<Map> dinner = [{'img':'assets/images/Martinarolls.png','name':'Martina Rolls','dis':'254m','Price':850},
+  {'img':'assets/images/food7.jpeg','name':'Margherita','dis':'254m','Price':350},
+  {'img':'assets/images/food2.jpeg','name':'Italian Salad','dis':'254m','Price':650},
+  {'img':'assets/images/Martinarolls.png','name':'Martin Rolls','dis':'254m','Price':850},
+  {'img':'assets/images/food7.jpeg','name':'Corn n chees','dis':'254m','Price':450},];
+
+
+
+
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+
+  var grid = gridview(lst: [],);
+  @override
+  void initState() {
+    super.initState();
+    grid = gridview(lst: breakfast);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.count(
-        crossAxisCount: 2,
-        // crossAxisSpacing: 10.0,
-        // mainAxisSpacing: 10.0,
-        shrinkWrap: true,
-        children: List.generate(9, (index) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 10,left: 5,right: 5,bottom: 5),
-            child:Container(
-              height: 200,
-              width: 170,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.red,
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/food10.jpeg'),
-                      fit: BoxFit.cover)),
+      backgroundColor: Color.fromRGBO(107, 0, 0, 0.1),
+
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: MediaQuery.of(context).size.height * 0.005,),
+          Container(
+              width: MediaQuery.of(context).size.width * 1,
+              height: MediaQuery.of(context).size.height * .700,
+              child: grid
+
+          )],
+      ),
+    );
+  }
+}
+
+class gridview extends StatelessWidget {
+
+
+
+  final List<Map> lst;
+
+  const gridview({key,  required this.lst});
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1), itemBuilder: (BuildContext context,int index){
+      return Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: GestureDetector(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail()));
+          },
+          child:
+
+          Container(
+            // height: 280,
+            // width: 350,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
+                    height: 190,
+                    width: 340,
+                    child: null,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        // color: Colors.red,
+                        image: DecorationImage(
+                            image: AssetImage(lst[index]['img']),
+                            fit: BoxFit.cover)),
+                  ),
+                  SizedBox(height: 8,),
+                  Container(
+                    width: 350,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment:
+                      CrossAxisAlignment.start,
                       children: [
-                        // Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-                        Text(data[index],style: TextStyle(fontSize: 20,color: Colors.white),),
-                        Text(price[index],style: TextStyle(color: Colors.white)),
+                        Text(
+                          lst[index]['name']
+                          ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 10,),
+                        Text(
+                          'This is Our Product own by Milan Kalathiya,This is Our Product own by Milan Kalathiya,This is Our Product own by Milan Kalathiya' ,style: TextStyle(fontSize: 14),
+                        )
                       ],
                     ),
+                  ),
+                  SizedBox(height: 10,),
+                  Container(
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.orange,
+                        ),
+                        SizedBox(width: 40,),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(20),
+                            color: Color.fromRGBO(107, 0, 0, 1),
+                          ),
+                          height: 30,
+                          width: 80,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(width: 5,),
+                              Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
+                              SizedBox(width:3,),
+                              Text(lst[index]['dis']
+                                ,style: TextStyle(color: Colors.white),)
+                            ],),
+                        ),
+                        SizedBox(width: 10,),
+                        Container(
+                          height: 30,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(20),
+                            color: Color.fromRGBO(107, 0, 0, 1),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(width: 8,),
+                              Icon(Icons.currency_rupee,color: Colors.white,size: 18,),
+                              Text(lst[index]['Price'].toString()
+                                ,style: TextStyle(color: Colors.white,fontSize: 16),)
+                            ],),
 
-                    height: 60,
-                    width: 200,
-                    alignment: Alignment.bottomCenter,
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(107, 0, 0, 0.6),
-                      borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40),bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
+          ),
 
-          );
-        },),
-      ),
-    );  }
+        ),
+      );
+    },itemCount: lst.length,);
+  }
 }
+
 
 
 

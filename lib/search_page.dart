@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khana/detail.dart';
 
 import 'order_page.dart';
 
@@ -10,9 +11,6 @@ class SreachPage extends StatefulWidget {
 }
 
 class _SreachPageState extends State<SreachPage> {
-  var userDetails = {};
-  var i;
-  List returnTicketDetails = [];
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +36,7 @@ class _SreachPageState extends State<SreachPage> {
         //   ],
         // ),
         centerTitle: true,
+        // backgroundColor: Color.fromRGBO(107, 0, 0, 1),
         backgroundColor: Color.fromRGBO(107, 0, 0, 1),
       ),
       drawer: Drawer(
@@ -483,7 +482,7 @@ class _SreachPageState extends State<SreachPage> {
                               borderRadius: BorderRadius.circular(20)),
                           // labelText: "Search",
                           prefixIcon: Icon(Icons.search),
-                          suffixIcon: Icon(Icons.close)),
+                          suffixIcon: Icon(Icons.filter_list)),
                     ),
                   ),
                 ],
@@ -514,13 +513,9 @@ class _SreachPageState extends State<SreachPage> {
                               GestureDetector(
                                 child: Container(
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      CircleAvatar(
-                                        backgroundImage:
-                                            AssetImage('assets/images/fast.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 1),
-                                      ),
+                                      SizedBox(width: 10,),
+                                      Image.asset('assets/images/fast.png',height: 40),
                                       Text("Breakfast",style: TextStyle(color: Colors.white),)
                                     ],
                                   ),
@@ -536,13 +531,10 @@ class _SreachPageState extends State<SreachPage> {
                               GestureDetector(
                                 child: Container(
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      CircleAvatar(
-                                        backgroundImage:
-                                            AssetImage('assets/images/lunch.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 0),
-                                      ),
+                                      SizedBox(width: 10,),
+                                      Image.asset('assets/images/lunch.png',height: 40),
+                                      SizedBox(width: 5,),
                                       Text("Lunch")
                                     ],
                                   ),
@@ -557,13 +549,10 @@ class _SreachPageState extends State<SreachPage> {
                               ),
                               GestureDetector(child:Container(
                                 child: Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    CircleAvatar(
-                                      backgroundImage:
-                                      AssetImage('assets/images/food.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 0),
-                                    ),
+                                    SizedBox(width: 10,),
+                                    Image.asset('assets/images/food.png',height: 40),
+                                    SizedBox(width: 5,),
                                     Text("Dinner",style: TextStyle(color: Colors.white),)
                                   ],
                                 ),
@@ -578,13 +567,10 @@ class _SreachPageState extends State<SreachPage> {
                               GestureDetector(
                                 child: Container(
                                   child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      CircleAvatar(
-                                        backgroundImage:
-                                        AssetImage('assets/images/sweets.png'),backgroundColor: Color.fromRGBO(107, 0, 0, 0),
-                                      ),
+                                      SizedBox(width: 10,),
+                                      Image.asset('assets/images/sweets.png',height: 35),
+                                      SizedBox(width: 5,),
                                       Text("Dessert")
                                     ],
                                   ),
@@ -597,6 +583,7 @@ class _SreachPageState extends State<SreachPage> {
                                   margin: EdgeInsets.only(left: 20),
                                 ),
                               ),
+                              SizedBox(width: 20,)
                             ],
                           ),
                         )
@@ -649,282 +636,246 @@ class _SreachPageState extends State<SreachPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          height: 220,
-                          width: 240,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              ),
-                          child: Column(children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
-                              color: Colors.green,
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/food_p1.jpg'),
-                                  fit: BoxFit.cover),
-                            ),
+                        GestureDetector(
+                          onTap: (){
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 2,top: 10,bottom: 8),
+                            child: Container(
+                                height: 220,
+                                width: 240,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/images/food7.jpeg'),
+                                      fit: BoxFit.cover),
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Container(child: Text("Margherita",style: TextStyle(fontSize:20,color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom: 5,left: 10),alignment: Alignment.centerLeft,),
+                                        Row(
+                                          // crossAxisAlignment: CrossAxisAlignment.end,
+                                          children: [
+                                            Container(child: Text("Rs. 200",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom:10,left: 10),),
+                                            Container(width: 80,height: 20,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(8)
+                                                  ,color: Color.fromRGBO(107, 0, 0, 0.7)
+                                              ),margin: EdgeInsets.only(bottom:10,left: 5),
+                                              child: Text("Medium",style: TextStyle(color: Colors.white,fontSize: 11),),alignment: Alignment.center,),
+                                          ],),
+                                      ],
+                                    ),
+                                    GestureDetector(
+                                      onTap: (){},
+                                      child: Container(height:52,width:52,decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(topLeft:Radius.circular(20),bottomRight:Radius.circular(20)),
+                                        color: Color.fromRGBO(107, 0, 0, 0.7),
+                                      ),child: Icon(Icons.add,color: Colors.white,),),
+                                    )
+                                  ],
+                                )
 
-                                child: null,
-                            width: 240,
-                            height: 150,),
-                            Container(
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 2,top: 10,bottom: 8),
+                          child: Container(
+                              height: 220,
+                              width: 240,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                    image: AssetImage('assets/images/food5.jpeg'),
+                                    fit: BoxFit.cover),
+                              ),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.end,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-                                      Text("Rs.550",style: TextStyle(color: Colors.white)),
+                                      Container(child: Text("Veg Burger",style: TextStyle(fontSize:20,color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom: 5,left: 10),alignment: Alignment.centerLeft,),
+                                      Row(
+                                        // crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: [
+                                          Container(child: Text("Rs. 150",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom:10,left: 10),),
+                                          Container(width: 80,height: 20,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(8)
+                                                ,color: Color.fromRGBO(107, 0, 0, 0.7)
+                                            ),margin: EdgeInsets.only(bottom:10,left: 5),
+                                            child: Text("With Drink",style: TextStyle(color: Colors.white,fontSize: 11),),alignment: Alignment.center,),
+                                        ],),
                                     ],
                                   ),
-                                  SizedBox(width: 40,),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text('Order',
-                                        style: TextStyle(
-                                            fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
-                                    style: ButtonStyle(
-                                        foregroundColor:
-                                        MaterialStateProperty.all(
-                                            Colors.black54),
-                                        backgroundColor:
-                                        MaterialStateProperty.all(
-                                            // Color.fromRGBO(107, 0, 0, 1)
-                                          Colors.white
-                                        ),
-                                        shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                            RoundedRectangleBorder(
-                                              borderRadius:
-                                              BorderRadius.circular(10),
-                                              side: BorderSide(
-                                                  color: Colors.transparent),
-                                            ))),
-                                  )                                ],
-                              ),
+                                  GestureDetector(
+                                    onTap: (){},
+                                    child: Container(height:52,width:52,decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:Radius.circular(20),bottomRight:Radius.circular(20)),
+                                      color: Color.fromRGBO(107, 0, 0, 0.7),
+                                    ),child: Icon(Icons.add,color: Colors.white,),),
+                                  )
+                                ],
+                              )
 
-                              height: 70,
-                              width: 250,
-                              alignment: Alignment.bottomCenter,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 2,top: 10,bottom: 8),
+                          child: Container(
+                              height: 220,
+                              width: 240,
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(107, 0, 0, 0.6),
-                                borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                    image: AssetImage('assets/images/food4.jpeg'),
+                                    fit: BoxFit.cover),
                               ),
-                            ),
-                          ],)
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(child: Text("Veg Salad",style: TextStyle(fontSize:20,color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom: 5,left: 10),alignment: Alignment.centerLeft,),
+                                      Row(
+                                        // crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: [
+                                          Container(child: Text("Rs. 250",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom:10,left: 10),),
+                                          // Container(width: 80,height: 20,
+                                          //   decoration: BoxDecoration(
+                                          //       borderRadius: BorderRadius.circular(8)
+                                          //       ,color: Color.fromRGBO(107, 0, 0, 0.7)
+                                          //   ),margin: EdgeInsets.only(bottom:10,left: 5),
+                                          //   child: Text("Medium",style: TextStyle(color: Colors.white,fontSize: 11),),alignment: Alignment.center,),
+                                        ],),
+                                    ],
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){},
+                                    child: Container(height:52,width:52,decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:Radius.circular(20),bottomRight:Radius.circular(20)),
+                                      color: Color.fromRGBO(107, 0, 0, 0.7),
+                                    ),child: Icon(Icons.add,color: Colors.white,),),
+                                  )
+                                ],
+                              )
+
+                          ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Container(
-                            height: 220,
-                            width: 240,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Column(children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
-                                  color: Colors.green,
-                                  image: DecorationImage(
-                                      image: AssetImage('assets/images/food_p1.jpg'),
-                                      fit: BoxFit.cover),
-                                ),
-
-                                child: null,
-                                width: 240,
-                                height: 150,),
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text("Veg-Pizza",style: TextStyle(fontSize: 20,color: Colors.white),),
-                                        Text("Rs.550",style: TextStyle(color: Colors.white)),
-                                      ],
-                                    ),
-                                    SizedBox(width: 40,),
-                                    ElevatedButton(
-                                      onPressed: () {},
-                                      child: Text('Order',
-                                          style: TextStyle(
-                                              fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
-                                      style: ButtonStyle(
-                                          foregroundColor:
-                                          MaterialStateProperty.all(
-                                              Colors.black54),
-                                          backgroundColor:
-                                          MaterialStateProperty.all(
-                                            // Color.fromRGBO(107, 0, 0, 1)
-                                              Colors.white
-                                          ),
-                                          shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                              RoundedRectangleBorder(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                side: BorderSide(
-                                                    color: Colors.transparent),
-                                              ))),
-                                    )                                ],
-                                ),
-
-                                height: 70,
-                                width: 250,
-                                alignment: Alignment.bottomCenter,
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(107, 0, 0, 0.6),
-                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                                ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 2,top: 10,bottom: 8),
+                          child: Container(
+                              height: 220,
+                              width: 240,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                    image: AssetImage('assets/images/food2.jpeg'),
+                                    fit: BoxFit.cover),
                               ),
-                            ],)
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(child: Text("Martina Salad",style: TextStyle(fontSize:20,color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom: 5,left: 10),alignment: Alignment.centerLeft,),
+                                      Row(
+                                        // crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: [
+                                          Container(child: Text("Rs. 350",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom:10,left: 10),),
+                                          Container(width: 80,height: 20,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(8)
+                                                ,color: Color.fromRGBO(107, 0, 0, 0.7)
+                                            ),margin: EdgeInsets.only(bottom:10,left: 5),
+                                            child: Text("Medium",style: TextStyle(color: Colors.white,fontSize: 11),),alignment: Alignment.center,),
+                                        ],),
+                                    ],
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){},
+                                    child: Container(height:52,width:52,decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:Radius.circular(20),bottomRight:Radius.circular(20)),
+                                      color: Color.fromRGBO(107, 0, 0, 0.7),
+                                    ),child: Icon(Icons.add,color: Colors.white,),),
+                                  )
+                                ],
+                              )
+
+                          ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Container(
-                            height: 220,
-                            width: 240,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Column(children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
-                                  color: Colors.green,
-                                  image: DecorationImage(
-                                      image: AssetImage('assets/images/food_p1.jpg'),
-                                      fit: BoxFit.cover),
-                                ),
-
-                                child: null,
-                                width: 240,
-                                height: 150,),
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text("Margherita",style: TextStyle(fontSize: 20,color: Colors.white),),
-                                        Text("Rs.550",style: TextStyle(color: Colors.white)),
-                                      ],
-                                    ),
-                                    SizedBox(width: 40,),
-                                    ElevatedButton(
-                                      onPressed: () {},
-                                      child: Text('Order',
-                                          style: TextStyle(
-                                              fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
-                                      style: ButtonStyle(
-                                          foregroundColor:
-                                          MaterialStateProperty.all(
-                                              Colors.black54),
-                                          backgroundColor:
-                                          MaterialStateProperty.all(
-                                            // Color.fromRGBO(107, 0, 0, 1)
-                                              Colors.white
-                                          ),
-                                          shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                              RoundedRectangleBorder(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                side: BorderSide(
-                                                    color: Colors.transparent),
-                                              ))),
-                                    )                                ],
-                                ),
-
-                                height: 70,
-                                width: 250,
-                                alignment: Alignment.bottomCenter,
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(107, 0, 0, 0.6),
-                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                                ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 2,top: 10,bottom: 8),
+                          child: Container(
+                              height: 220,
+                              width: 240,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                    image: AssetImage('assets/images/food10.jpeg'),
+                                    fit: BoxFit.cover),
                               ),
-                            ],)
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Container(
-                            height: 220,
-                            width: 240,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Column(children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
-                                  color: Colors.green,
-                                  image: DecorationImage(
-                                      image: AssetImage('assets/images/food_p1.jpg'),
-                                      fit: BoxFit.cover),
-                                ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(child: Text("Farm house",style: TextStyle(fontSize:20,color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom: 5,left: 10),alignment: Alignment.centerLeft,),
+                                      Row(
+                                        // crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: [
+                                          Container(child: Text("Rs. 400",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),padding: EdgeInsets.only(bottom:10,left: 10),),
+                                          Container(width: 80,height: 20,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(8)
+                                                ,color: Color.fromRGBO(107, 0, 0, 0.7)
+                                            ),margin: EdgeInsets.only(bottom:10,left: 5),
+                                            child: Text("Medium",style: TextStyle(color: Colors.white,fontSize: 11),),alignment: Alignment.center,),
+                                        ],),
+                                    ],
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){},
+                                    child: Container(height:52,width:52,decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:Radius.circular(20),bottomRight:Radius.circular(20)),
+                                      color: Color.fromRGBO(107, 0, 0, 0.7),
+                                    ),child: Icon(Icons.add,color: Colors.white,),),
+                                  )
+                                ],
+                              )
 
-                                child: null,
-                                width: 240,
-                                height: 150,),
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text("7Chees Pizza",style: TextStyle(fontSize: 20,color: Colors.white),),
-                                        Text("Rs.550",style: TextStyle(color: Colors.white)),
-                                      ],
-                                    ),
-                                    SizedBox(width: 25,),
-                                    ElevatedButton(
-                                      onPressed: () {},
-                                      child: Text('Order',
-                                          style: TextStyle(
-                                              fontSize: 14, color: Color.fromRGBO(107, 0, 0, 1))),
-                                      style: ButtonStyle(
-                                          foregroundColor:
-                                          MaterialStateProperty.all(
-                                              Colors.black54),
-                                          backgroundColor:
-                                          MaterialStateProperty.all(
-                                            // Color.fromRGBO(107, 0, 0, 1)
-                                              Colors.white
-                                          ),
-                                          shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                              RoundedRectangleBorder(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                side: BorderSide(
-                                                    color: Colors.transparent),
-                                              ))),
-                                    )                                ],
-                                ),
-
-                                height: 70,
-                                width: 250,
-                                alignment: Alignment.bottomCenter,
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(107, 0, 0, 0.6),
-                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20)),
-                                ),
-                              ),
-                            ],)
+                          ),
                         ),
                         SizedBox(
                           width: 10,
