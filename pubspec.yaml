@@ -35,6 +35,8 @@ dependencies:
   bottom_navigation_bar: ^1.0.0
   flutter_image_slideshow: any
   circle_bottom_navigation_bar: ^1.0.0
+  firebase_core:
+  firebase_database:
 
 
   # The following adds the Cupertino Icons font to your application.

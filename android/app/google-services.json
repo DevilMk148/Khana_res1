@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "15553411891",
+    "firebase_url": "https://khana-restaurant-default-rtdb.firebaseio.com",
+    "project_id": "khana-restaurant",
+    "storage_bucket": "khana-restaurant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15553411891:android:9656a5a988071a7615dc46",
+        "android_client_info": {
+          "package_name": "com.example.khana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15553411891-k6scmmn5nbq2vr03t1ofmc5inmjinmu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLvklyki0Kfl1FUU9DkH9N0voh41nKuxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15553411891-k6scmmn5nbq2vr03t1ofmc5inmjinmu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
+import 'package:khana/firebase_dbfile.dart';
 
 import 'Home_Page.dart';
 import 'main.dart';
@@ -26,8 +29,13 @@ class _Sign_InState extends State<Sign_In> {
   bool pass=true;
   TextEditingController EmailController=new TextEditingController();
   TextEditingController phoneController=new TextEditingController();
+
+
+  firebase_db db=new firebase_db();
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         // resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
@@ -223,6 +231,7 @@ class _Sign_InState extends State<Sign_In> {
                             width: 250,
                             child: ElevatedButton(
                               onPressed: () {
+                                db.insert(EmailController,phoneController);
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(

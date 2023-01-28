@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:khana/Log_in.dart';
-import 'package:khana/search_page.dart';
 
 import 'Sign_up.dart';
 import 'order_page.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:khana/search_page.dart';
 
 import 'HomeMenu.dart';
 import 'order_page.dart';
@@ -448,9 +447,6 @@ class _Home_PageState extends State<Home_Page> {
                 icon: Icon(Icons.home,),
                 label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.search,),
-                label: 'Search'),
-            BottomNavigationBarItem(
                 icon: Icon(Icons.fastfood,),
                 label: 'Menu'),
             BottomNavigationBarItem(
@@ -466,7 +462,7 @@ class _Home_PageState extends State<Home_Page> {
         ),
         body: IndexedStack(
           index: _selectedIndex,
-          children: [HomeMenu(),SreachPage(), OrderPage()],
+          children: [HomeMenu(), OrderPage()],
         )
         //
         // Padding(

@@ -2,13 +2,20 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:khana/main.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: SlpashScreen(),
-    debugShowCheckedModeBanner: false,
-  ));
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(
+    MaterialApp(
+      home: SlpashScreen(),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
 }
 
 class SlpashScreen extends StatefulWidget {
