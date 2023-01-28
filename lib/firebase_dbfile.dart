@@ -22,6 +22,7 @@ class firebase_db {
     temp.forEach((key, value) {
       data.add(value);
     });
+    return data;
   }
 
 }

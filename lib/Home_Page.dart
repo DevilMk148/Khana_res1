@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:khana/profile_page.dart';
 
 import 'HomeMenu.dart';
 import 'order_page.dart';
@@ -462,7 +463,7 @@ class _Home_PageState extends State<Home_Page> {
         ),
         body: IndexedStack(
           index: _selectedIndex,
-          children: [HomeMenu(), OrderPage()],
+          children: [HomeMenu(), OrderPage(),ProfilePage()],
         )
         //
         // Padding(
