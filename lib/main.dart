@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
                   // color: Colors.redAccent,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const Sign_In()));

@@ -6,16 +6,26 @@ class firebase_db {
   FirebaseDatabase database = FirebaseDatabase.instance;
   String selectedKey = '';
 
-  insert(TextEditingController emailController,TextEditingController passController){
-    String? key = database.ref('User').push().key;
-    database.ref('User').child(key!).set({
-      'email': emailController.text,
-      'pass': passController.text,
-      'key': key,
-    });
+  insert(String emailController,String phoneController,String passController,String NameController,String DateInput,String gender){
+    String? key = database
+        .ref('User')
+        .push()
+        .key;
+
+    database
+        .ref('User')
+        .child(key!)
+        .set({
+      'name' : NameController,
+      'email' : emailController,
+      'phone': phoneController,
+      'pass': passController,
+      'date' : DateInput,
+      'gender' : gender,
+      'key': key});
   }
 
-  select() async {
+   select() async {
     DatabaseEvent d = await database.ref('User').once();
     Map temp = d.snapshot.value as Map;
     data.clear();

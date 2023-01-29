@@ -127,7 +127,7 @@ class _Log_InState extends State<Log_In> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Home_Page()));
+                          builder: (context) => Home_Page()));
                 },
                 child: Text('SUBMIT',
                     style: TextStyle(fontSize: 14, color: Colors.white)),
