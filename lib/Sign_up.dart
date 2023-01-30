@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
+import 'package:khana/HomeMenu.dart';
 import 'package:khana/Log_in.dart';
 import 'package:khana/firebase_dbfile.dart';
 import 'package:khana/profile_page.dart';
 
-import 'Home_Page.dart';
 import 'main.dart';
 
 
@@ -20,6 +20,21 @@ class Sign_In extends StatefulWidget {
 
 class _Sign_InState extends State<Sign_In> {
   bool valuefirst = false;
+GlobalKey<FormState> signin= GlobalKey<FormState>();
+
+void valid(){
+  if(signin.currentState!.validate()){
+        db.insert(email,phone,passt,name,date,gender);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                const HomeMenu()));
+  }
+  else{
+    print("not");
+  }
+}
 
   void initState() {
     dateInput.text = "";
@@ -79,11 +94,11 @@ class _Sign_InState extends State<Sign_In> {
                     )),
               ), //Sign Up text
               SingleChildScrollView(
-                child: Container(
-                  height: 595,
-                  margin: EdgeInsets.only(top: 5),
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
+                scrollDirection: Axis.vertical,
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Form(
+                    key: signin,
                     child: Column(
                       children: [
                         Padding(
@@ -111,12 +126,25 @@ class _Sign_InState extends State<Sign_In> {
                                 labelText: 'Name',
                                 errorText: NameController.text.length <=4 ? (nameb ?
                                 nrr = 'Enter Valid Name' : null) : null,
-                              )),
+                              ),
+                            validator: (value){
+                                if(value!.isEmpty){
+                                  return 'Enter Valid Name';
+                                }
+                                return null;
+                            },
+                          ),
 
                         ), //name
                         Padding(
                           padding: const EdgeInsets.all(4.0),
                           child: TextFormField(
+                              validator: (value){
+                                if(value!.isEmpty){
+                                  return 'Enter Valid Email';
+                                }
+                                return null;
+                              },
                               controller: EmailController,
                               keyboardType: TextInputType.emailAddress,
 
@@ -147,7 +175,13 @@ class _Sign_InState extends State<Sign_In> {
                         ),// String data as email
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: TextField(
+                          child: TextFormField(
+                            validator: (value){
+                              if(value!.isEmpty){
+                                return 'Enter Valid Phonenumber';
+                              }
+                              return null;
+                            },
                             controller: phoneController,
                             onChanged: (val){
                               prr=(val.length<10)?'enter a valid phone number*':null;
@@ -174,7 +208,13 @@ class _Sign_InState extends State<Sign_In> {
                         ),// String data as phone
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: TextField(
+                          child: TextFormField(
+                            validator: (value){
+                              if(dateInput.text!.isEmpty){
+                                return 'Enter Valid Date';
+                              }
+                              return null;
+                            },
                             controller: dateInput,
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -204,7 +244,13 @@ class _Sign_InState extends State<Sign_In> {
                         ),// String data as date
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: TextField(
+                          child: TextFormField(
+                            validator: (value){
+                              if(value!.isEmpty){
+                                return 'Enter Valid Password';
+                              }
+                              return null;
+                            },
                             controller: PassController,
                             onChanged: (val) {
                               if(PassController.text.length==10){
@@ -289,20 +335,17 @@ class _Sign_InState extends State<Sign_In> {
                               margin: EdgeInsets.only(top: 20),
                               width: 250,
                               child: ElevatedButton(
-                                onPressed: () {
-
-                                  if(name.isEmpty || passt.isEmpty || email.isEmpty || date.isEmpty || phone.isEmpty || gender!.isEmpty || !valuefirst){
-                                    null;
-                                  }
-                                  else{
-                                    db.insert(email,phone,passt,name,date,gender);
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                            const ProfilePage()));
-                                  }
-                                },
+                                // onPressed: () {
+                                //
+                                //     // db.insert(email,phone,passt,name,date,gender);
+                                //     // Navigator.push(
+                                //     //     context,
+                                //     //     MaterialPageRoute(
+                                //     //         builder: (context) =>
+                                //     //         const HomeMenu()));
+                                //
+                                // },
+                                onPressed: valid,
                                 child: Text('SUBMIT',
                                     style: TextStyle(
                                         fontSize: 14, color: Colors.white)),
@@ -329,6 +372,7 @@ class _Sign_InState extends State<Sign_In> {
                   ),
                 ),
               ),
+              SizedBox(height: 70,),
               Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),

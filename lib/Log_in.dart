@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:khana/HomeMenu.dart';
 import 'package:khana/Sign_up.dart';
 
-import 'Home_Page.dart';
 import 'main.dart';
 
 class Log_In extends StatefulWidget {
@@ -127,7 +127,7 @@ class _Log_InState extends State<Log_In> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Home_Page()));
+                          builder: (context) => HomeMenu()));
                 },
                 child: Text('SUBMIT',
                     style: TextStyle(fontSize: 14, color: Colors.white)),
