@@ -5,12 +5,34 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
 import 'package:khana/HomeMenu.dart';
 import 'package:khana/Log_in.dart';
-import 'package:khana/firebase_dbfile.dart';
-import 'package:khana/profile_page.dart';
 
 import 'main.dart';
 
+class firebase_db {
+  List<Map> data = [];
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  String selectedKey = '';
 
+  insert(String emailController, String phoneController, String passController,
+      String NameController, String DateInput, String gender) {
+    String? key = database
+        .ref('User')
+        .push()
+        .key;
+
+    database
+        .ref('User')
+        .child(key!)
+        .set({
+      'name': NameController,
+      'email': emailController,
+      'phone': phoneController,
+      'pass': passController,
+      'date': DateInput,
+      'gender': gender,
+      'key': key});
+  }
+}
 class Sign_In extends StatefulWidget {
   const Sign_In({Key? key}) : super(key: key);
 
@@ -29,7 +51,7 @@ void valid(){
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                const HomeMenu()));
+                const Log_In()));
   }
   else{
     print("not");

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:khana/detail.dart';
-import 'package:khana/order_page.dart';
 
 class HomeMenu extends StatefulWidget {
   const HomeMenu({Key? key}) : super(key: key);
@@ -10,36 +9,305 @@ class HomeMenu extends StatefulWidget {
   @override
   State<HomeMenu> createState() => _HomeMenuState();
 }
+List<Map> Data = [
+  {
+    "title": "ItalianRusoo",
+    "image": 'assets/images/ItalianRusoo.png',
+    "price": 320,
+    "info": "The comfort of potato and the crunch of corn in one thick pattie. Topped off with lettuce, tomatoes, gherkins and served with hot chips.",
+    "star": "4.6",
+    "likes": "1056",
+    "mes": "403",
+    "time": "60m",
+    "cal": "340cal",
+    "gram": "110g"
+  },
+  {
+    "title": "Sandwich",
+    "image": 'assets/images/sandwich.png',
+    "price": 200,
+    "info": "Being a vegetarian is no reason to deny yourself the gluttonous pleasures of an overstuffed bun. Try this bean burger with a chipotle chilli and a dash of lime.",
+    "star": "4.3",
+    "likes": "656",
+    "mes": "218",
+    "time": "50m",
+    "cal": "290cal",
+    "gram": "140g"
+  },
+  {
+    "title": "Ultimate veg burger with carrot slaw",
+    "image": 'assets/images/food4.jpeg',
+    "price": 280,
+    "info": "A low-fat veggie burger made with sweet potato, quinoa and mushrooms - a change from the standard vegetarian bean burger - make your barbecue menu stand out!",
+    "star": "4.6",
+    "likes": "956",
+    "mes": "403",
+    "time": "60m",
+    "cal": "310cal",
+    "gram": "110g"
+  },
+  {
+    "title": "Sandwich",
+    "image": 'assets/images/sandwich.png',
+    "price": 240,
+    "info": "Pack a flavour punch with this vegan sweet potato, cashew and tofu burger. It takes a little effort, but it's well worth the prep time once you taste it",
+    "star": "4.5",
+    "likes": "620",
+    "mes": "218",
+    "time": "35m",
+    "cal": "865cal",
+    "gram": "180g"
+  },
+  {
+    "title": "ItalianRusoo",
+    "image": 'assets/images/ItalianRusoo.png',
+    "price": 350,
+    "info": "These healthy, falafel-inspired chickpea & coriander burgers are an easy storecupboard supper. Whizz everything together in your food processor then top with punchy red onion and chilli sauce for a hearty veggie main.",
+    "star": "4.8",
+    "likes": "982",
+    "mes": "612",
+    "time": "20m",
+    "cal": "344cal",
+    "gram": "100g"
+  },
+  {
+    "title": "Pulled BBQ & black bean burgers",
+    "image": 'assets/images/food4.jpeg',
+    "price": 280,
+    "info": "Get the kids to help you prep the veg for these family-friendly burgers. These veggie buns have all the comforting textures of meat but are completely vegan.",
+    "star": "4.6",
+    "likes": "830",
+    "mes": "403",
+    "time": "45m",
+    "cal": "439cal",
+    "gram": "180g"
+  },
+  {
+    "title": "Chocolava",
+    "image": 'assets/images/Chocolava.png',
+    "price": 550,
+    "info": "It is baked by adding the cheese as topping over it. The base is perfectly prepared by adding single layer of cheese over it. It is mouth-watering pizza for cheese lovers.",
+    "star": "4.6",
+    "likes": "853",
+    "mes": "352",
+    "time": "60m",
+    "cal": "440cal",
+    "gram": "210g"
+  },           // pizza
+  {
+    "title": "Chocochees",
+    "image": 'assets/images/Chocochees.png',
+    "price": 450,
+    "info": "There’s a reason this is one of the most popular types of pizza. Who doesn’t love biting into a crispy, salty round of pepperoni?",
+    "star": "4.3",
+    "likes": "985",
+    "mes": "256",
+    "time": "50m",
+    "cal": "460cal",
+    "gram": "190g"
+  },
+  {
+    "title": "Donuts",
+    "image": 'assets/images/Donuts.png',
+    "price": 600,
+    "info": "If you love BBQ and you love pizza, why not put them together? The topping over the top of a pie gives it a tangy, sweet flavor that can’t be beaten.",
+    "star": "4.7",
+    "likes": "963",
+    "mes": "612",
+    "time": "90m",
+    "cal": "680cal",
+    "gram": "250g"
+  },
+  {
+    "title": "Nutpie",
+    "image": 'assets/images/Nutpie.png',
+    "price": 660,
+    "info": "The “supreme” refers to the litany of toppings that come scattered on these pies, from sausage to vegetables to pepperoni. And it’s the combination of the flavors that really makes it sing.",
+    "star": "4.6",
+    "likes": "756",
+    "mes": "327",
+    "time": "80m",
+    "cal": "582cal",
+    "gram": "240g"
+  },
+  {
+    "title": "Chocochees",
+    "image": 'assets/images/Chocochees.png',
+    "price": 450,
+    "info": "There’s a reason this is one of the most popular types of pizza. Who doesn’t love biting into a crispy, salty round of pepperoni?",
+    "star": "4.3",
+    "likes": "985",
+    "mes": "256",
+    "time": "50m",
+    "cal": "460cal",
+    "gram": "190g"
+  },
+  {
+    "title": "Donuts",
+    "image": 'assets/images/Donuts.png',
+    "price": 600,
+    "info": "If you love BBQ and you love pizza, why not put them together? The topping over the top of a pie gives it a tangy, sweet flavor that can’t be beaten.",
+    "star": "4.7",
+    "likes": "963",
+    "mes": "612",
+    "time": "90m",
+    "cal": "680cal",
+    "gram": "250g"
+  },
+  {
+    "title": "Frenchfries",
+    "image": 'assets/images/fries.png',
+    "price": 280,
+    "info": "it’s full of flavor from an incredible herbed goat cheese spread and tangy pickled radishes. The bell peppers are broiled simply, and a vibrant combination with the other veggies!",
+    "star": "4.1",
+    "likes": "630",
+    "mes": "358",
+    "time": "20m",
+    "cal": "458cal",
+    "gram": "110g"
+  },          // sandwich
+  {
+    "title": "HamBurger",
+    "image": 'assets/images/HamBurger.png',
+    "price": 300,
+    "info": "A vegetarian riff on a classic chicken salad sandwich, this chickpea version is very lunch-friendly.",
+    "star": "4.3",
+    "likes": "562",
+    "mes": "176",
+    "time": "30m",
+    "cal": "546cal",
+    "gram": "124g"
+  },
+  {
+    "title": "Italiannochos",
+    "image": 'assets/images/Italiannochos.png',
+    "price": 240,
+    "info": "It features crunchy fritters, ultra soft flatbread, crunchy veggies and creamy, garlicky sauces...it’s pretty much the ultimate sandwich.",
+    "star": "4.5",
+    "likes": "286",
+    "mes": "135",
+    "time": "50m",
+    "cal": "352cal",
+    "gram": "168g"
+  },
+  {
+    "title": "Frenchfries",
+    "image": 'assets/images/fries.png',
+    "price": 280,
+    "info": "it’s full of flavor from an incredible herbed goat cheese spread and tangy pickled radishes. The bell peppers are broiled simply, and a vibrant combination with the other veggies!",
+    "star": "4.1",
+    "likes": "630",
+    "mes": "358",
+    "time": "20m",
+    "cal": "458cal",
+    "gram": "110g"
+  },          // sandwich
+  {
+    "title": "HamBurger",
+    "image": 'assets/images/HamBurger.png',
+    "price": 300,
+    "info": "A vegetarian riff on a classic chicken salad sandwich, this chickpea version is very lunch-friendly.",
+    "star": "4.3",
+    "likes": "562",
+    "mes": "176",
+    "time": "30m",
+    "cal": "546cal",
+    "gram": "124g"
+  },
+  {
+    "title": "Italiannochos",
+    "image": 'assets/images/Italiannochos.png',
+    "price": 240,
+    "info": "It features crunchy fritters, ultra soft flatbread, crunchy veggies and creamy, garlicky sauces...it’s pretty much the ultimate sandwich.",
+    "star": "4.5",
+    "likes": "286",
+    "mes": "135",
+    "time": "50m",
+    "cal": "352cal",
+    "gram": "168g"
+  },
+  {
+    "title": "Burgerspring" ,
+    "image": 'assets/images/Burgerspring.png',
+    "price": 250,
+    "info": "This is a Indo chinese hakka noodles where noodles are toasted with garlic and vegetables.",
+    "star": "4.5",
+    "likes": "548",
+    "mes": "156",
+    "time": "30m",
+    "cal": "289cal",
+    "gram": "110g"
+  },          // noodles
+  {
+    "title": "Martinarolls",
+    "image": 'assets/images/Martinarolls.png',
+    "price": 240,
+    "info": "A popular and flavoured noodles recipe made with thin noodles and schezwan sauce. it is popular street food in india which can be served as a party starter or even as a meal for lunch and dinner.",
+    "star": "4.3",
+    "likes": "689",
+    "mes": "352",
+    "time": "30M",
+    "cal": "269cal",
+    "gram": "120g"
+  },
+  {
+    "title": "Malausian noodles",
+    "image": 'assets/images/food7.jpeg',
+    "price": 280,
+    "info": " A thrilling culinary adventure, the Malaysian Noodles is further enhanced with flavourful additions like garlic, soy sauce, lemon juice.",
+    "star": "4.4",
+    "likes": "693",
+    "mes": "352",
+    "time": "35m",
+    "cal": "452cal",
+    "gram": "130g"
+  },
+  {
+    "title": "Chinese noodles",
+    "image": 'assets/images/food2.jpeg',
+    "price": 350,
+    "info": "This unique Chinese noodles is made with fried noodles,tossed with colorful sauteed veggies and garnished with cruncy spring onion.",
+    "star": "4.2",
+    "likes": "460",
+    "mes": "352",
+    "time": "25m",
+    "cal": "403cal",
+    "gram": "140g"
+  },
+  {
+    "title": "Martinarolls",
+    "image": 'assets/images/Martinarolls.png',
+    "price": 240,
+    "info": "A popular and flavoured noodles recipe made with thin noodles and schezwan sauce. it is popular street food in india which can be served as a party starter or even as a meal for lunch and dinner.",
+    "star": "4.3",
+    "likes": "689",
+    "mes": "352",
+    "time": "30M",
+    "cal": "269cal",
+    "gram": "120g"
+  },
+  {
+    "title": "Malausian noodles",
+    "image": 'assets/images/food7.jpeg',
+    "price": 280,
+    "info": " A thrilling culinary adventure, the Malaysian Noodles is further enhanced with flavourful additions like garlic, soy sauce, lemon juice.",
+    "star": "4.4",
+    "likes": "693",
+    "mes": "352",
+    "time": "35m",
+    "cal": "452cal",
+    "gram": "130g"
+  },
+];
 
 class _HomeMenuState extends State<HomeMenu> {
-
   List<Map> breakfast = [{'img':'assets/images/ItalianRusoo.png','name':'Italian Rusoo','dis':'254m','Price':1050},
     {'img':'assets/images/sandwich.png','name':'Sand Wich','dis':'250m','Price':550},
     {'img':'assets/images/food4.jpeg','name':'Veg Salad','dis':'220m','Price':330},
     {'img':'assets/images/sandwich.png','name':'Sand Wich','dis':'150m','Price':550},
     {'img':'assets/images/ItalianRusoo.png','name':'Italian Rusoo','dis':'254m','Price':1050},
-    {'img':'assets/images/food4.jpeg','name':'Veg Salad','dis':'160m','Price':330},];
-
-  List<Map> dessert = [{'img':'assets/images/Chocolava.png','name':'Choco Lava','dis':'254m','Price':770},
-    {'img':'assets/images/Chocochees.png','name':'Choco Chees','dis':'254m','Price':850},
-    {'img':'assets/images/Donuts.png','name':'Donuts','dis':'254m','Price':550},
-    {'img':'assets/images/Nutpie.png','name':'Nut Pie','dis':'254m','Price':650},
-    {'img':'assets/images/Chocochees.png','name':'Choco Chees','dis':'254m','Price':850},
-    {'img':'assets/images/Donuts.png','name':'Donuts','dis':'254m','Price':550},];
-
-  List<Map> lunch = [{'img':'assets/images/fries.png','name':'French Fries','dis':'254m','Price':350},
-    {'img':'assets/images/HamBurger.png','name':'Ham Burger','dis':'254m','Price':550},
-    {'img':'assets/images/Italiannochos.png','name':'Italian Nachos','dis':'254m','Price':950},
-    {'img':'assets/images/fries.png','name':'Fries','dis':'254m','Price':350},
-    {'img':'assets/images/Italiannochos.png','name':'Italian Nachos','dis':'254m','Price':950},
-    {'img':'assets/images/Burgerspring.png','name':'Burger Spring','dis':'254m','Price':450},];
-
-  List<Map> dinner = [{'img':'assets/images/Martinarolls.png','name':'Martina Rolls','dis':'254m','Price':850},
-    {'img':'assets/images/food7.jpeg','name':'Margherita','dis':'254m','Price':350},
-    {'img':'assets/images/food2.jpeg','name':'Italian Salad','dis':'254m','Price':650},
-    {'img':'assets/images/Martinarolls.png','name':'Martin Rolls','dis':'254m','Price':850},
-    {'img':'assets/images/food7.jpeg','name':'Corn n chees','dis':'254m','Price':450},];
-
+    {'img':'assets/images/food4.jpeg','name':'Veg Salad','dis':'160m','Price':330},
+  ];
   List<Map> data= [
     {
       'name':'Italian Rusoo',
@@ -70,7 +338,7 @@ class _HomeMenuState extends State<HomeMenu> {
       'per':'95%'
     }
   ];
-
+  int index=0;
   var grid ;
 
   @override
@@ -546,473 +814,494 @@ class _HomeMenuState extends State<HomeMenu> {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              Container(
-                                height: 300,
-                                width: 210,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromRGBO(107, 0, 0, 0.1),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        height: 150,
-                                        width: 210,
-                                        child: null,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(20),
-                                            // color: Colors.red,
-                                            image: DecorationImage(
-                                                image: AssetImage('assets/images/ItalianRusoo.png'),
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      SizedBox(height: 8,),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              data[0]['name']
-                                              ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              data[0]['des'],
-                                              style: TextStyle(fontSize: 14),
-                                            )
-                                          ],
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(Data[index++])));
+                                },
+                                child: Container(
+                                  height: 300,
+                                  width: 210,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color.fromRGBO(107, 0, 0, 0.1),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 150,
+                                          width: 210,
+                                          child: null,
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(20),
+                                              // color: Colors.red,
+                                              image: DecorationImage(
+                                                  image: AssetImage('assets/images/ItalianRusoo.png'),
+                                                  fit: BoxFit.cover)),
                                         ),
-                                      ),
-                                      SizedBox(height: 4,),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                          ],
+                                        SizedBox(height: 8,),
+                                        Container(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                data[0]['name']
+                                                ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                                              ),
+                                              Text(
+                                                data[0]['des'],
+                                                style: TextStyle(fontSize: 14),
+                                              )
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(height: 8,),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            SizedBox(width: 2,),
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(20),
-                                                color: Color.fromRGBO(107, 0, 0, 1),
+                                        SizedBox(height: 4,),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
                                               ),
-                                              height: 30,
-                                              width: 80,
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(width: 5,),
-                                                  Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
-                                                  SizedBox(width:3,),
-                                                  Text(data[0]['dis']
-                                                    ,style: TextStyle(color: Colors.white),)
-                                                ],),
-                                            ),
-                                            SizedBox(width: 10,),
-                                            Container(
-                                              height: 30,
-                                              width: 70,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(20),
-                                                color: Color.fromRGBO(107, 0, 0, 1),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
                                               ),
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(width: 8,),
-                                                  Icon(Icons.adjust_rounded,color: Colors.white,size: 20,),
-                                                  SizedBox(width:3,),
-                                                  Text(data[0]['per']
-                                                    ,style: TextStyle(color: Colors.white),)
-                                                ],),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 8,),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              SizedBox(width: 2,),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(20),
+                                                  color: Color.fromRGBO(107, 0, 0, 1),
+                                                ),
+                                                height: 30,
+                                                width: 80,
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(width: 5,),
+                                                    Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
+                                                    SizedBox(width:3,),
+                                                    Text(data[0]['dis']
+                                                      ,style: TextStyle(color: Colors.white),)
+                                                  ],),
+                                              ),
+                                              SizedBox(width: 10,),
+                                              Container(
+                                                height: 30,
+                                                width: 70,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(20),
+                                                  color: Color.fromRGBO(107, 0, 0, 1),
+                                                ),
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(width: 8,),
+                                                    Icon(Icons.adjust_rounded,color: Colors.white,size: 20,),
+                                                    SizedBox(width:3,),
+                                                    Text(data[0]['per']
+                                                      ,style: TextStyle(color: Colors.white),)
+                                                  ],),
 
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                               SizedBox(width: 15,),
-                              Container(
-                                height: 300,
-                                width: 210,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromRGBO(107, 0, 0, 0.1),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        height: 150,
-                                        width: 210,
-                                        child: null,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(20),
-                                            // color: Colors.red,
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    'assets/images/sandwich.png'),
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      SizedBox(height: 8,),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              data[1]['name'],
-                                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              data[1]['des'],
-                                              style: TextStyle(fontSize: 14),
-                                            )
-                                          ],
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(Data[index++])));
+                                },
+                                child: Container(
+                                  height: 300,
+                                  width: 210,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color.fromRGBO(107, 0, 0, 0.1),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 150,
+                                          width: 210,
+                                          child: null,
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(20),
+                                              // color: Colors.red,
+                                              image: DecorationImage(
+                                                  image: AssetImage(
+                                                      'assets/images/sandwich.png'),
+                                                  fit: BoxFit.cover)),
                                         ),
-                                      ),
-                                      SizedBox(height: 4,),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.black54,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.black54,
-                                            ),
-                                          ],
+                                        SizedBox(height: 8,),
+                                        Container(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                data[1]['name'],
+                                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                                              ),
+                                              Text(
+                                                data[1]['des'],
+                                                style: TextStyle(fontSize: 14),
+                                              )
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(height: 8,),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            SizedBox(width: 2,),
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(20),
-                                                color: Color.fromRGBO(107, 0, 0, 1),
+                                        SizedBox(height: 4,),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
                                               ),
-                                              height: 30,
-                                              width: 80,
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(width: 5,),
-                                                  Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
-                                                  SizedBox(width:3,),
-                                                  Text(                                              data[1]['dis']
-                                                    ,style: TextStyle(color: Colors.white),)
-                                                ],),
-                                            ),
-                                            SizedBox(width: 10,),
-                                            Container(
-                                              height: 30,
-                                              width: 70,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(20),
-                                                color: Color.fromRGBO(107, 0, 0, 1),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
                                               ),
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(width: 8,),
-                                                  Icon(Icons.adjust_rounded,color: Colors.white,size: 20,),
-                                                  SizedBox(width:3,),
-                                                  Text(data[1]['per'],
-                                                    style: TextStyle(color: Colors.white),)
-                                                ],),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.black54,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.black54,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 8,),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              SizedBox(width: 2,),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(20),
+                                                  color: Color.fromRGBO(107, 0, 0, 1),
+                                                ),
+                                                height: 30,
+                                                width: 80,
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(width: 5,),
+                                                    Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
+                                                    SizedBox(width:3,),
+                                                    Text(                                              data[1]['dis']
+                                                      ,style: TextStyle(color: Colors.white),)
+                                                  ],),
+                                              ),
+                                              SizedBox(width: 10,),
+                                              Container(
+                                                height: 30,
+                                                width: 70,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(20),
+                                                  color: Color.fromRGBO(107, 0, 0, 1),
+                                                ),
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(width: 8,),
+                                                    Icon(Icons.adjust_rounded,color: Colors.white,size: 20,),
+                                                    SizedBox(width:3,),
+                                                    Text(data[1]['per'],
+                                                      style: TextStyle(color: Colors.white),)
+                                                  ],),
 
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                               SizedBox(width: 15,),
-                              Container(
-                                height: 300,
-                                width: 210,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromRGBO(107, 0, 0, 0.1),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        height: 150,
-                                        width: 210,
-                                        child: null,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(20),
-                                            // color: Colors.red,
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    'assets/images/burger.png'),
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      SizedBox(height: 8,),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              data[1]['name'],
-                                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              data[1]['des'],
-                                              style: TextStyle(fontSize: 14),
-                                            )
-                                          ],
+                              GestureDetector(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(Data[index++])));
+                                },
+                                child: Container(
+                                  height: 300,
+                                  width: 210,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color.fromRGBO(107, 0, 0, 0.1),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 150,
+                                          width: 210,
+                                          child: null,
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(20),
+                                              // color: Colors.red,
+                                              image: DecorationImage(
+                                                  image: AssetImage(
+                                                      'assets/images/burger.png'),
+                                                  fit: BoxFit.cover)),
                                         ),
-                                      ),
-                                      SizedBox(height: 4,),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.black54,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.black54,
-                                            ),
-                                          ],
+                                        SizedBox(height: 8,),
+                                        Container(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                data[2]['name'],
+                                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                                              ),
+                                              Text(
+                                                data[2]['des'],
+                                                style: TextStyle(fontSize: 14),
+                                              )
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(height: 8,),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            SizedBox(width: 2,),
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(20),
-                                                color: Color.fromRGBO(107, 0, 0, 1),
+                                        SizedBox(height: 4,),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
                                               ),
-                                              height: 30,
-                                              width: 80,
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(width: 5,),
-                                                  Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
-                                                  SizedBox(width:3,),
-                                                  Text(                                              data[1]['dis']
-                                                    ,style: TextStyle(color: Colors.white),)
-                                                ],),
-                                            ),
-                                            SizedBox(width: 10,),
-                                            Container(
-                                              height: 30,
-                                              width: 70,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(20),
-                                                color: Color.fromRGBO(107, 0, 0, 1),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
                                               ),
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(width: 8,),
-                                                  Icon(Icons.adjust_rounded,color: Colors.white,size: 20,),
-                                                  SizedBox(width:3,),
-                                                  Text(                                              data[1]['per']
-                                                    ,style: TextStyle(color: Colors.white),)
-                                                ],),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.black54,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.black54,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 8,),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              SizedBox(width: 2,),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(20),
+                                                  color: Color.fromRGBO(107, 0, 0, 1),
+                                                ),
+                                                height: 30,
+                                                width: 80,
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(width: 5,),
+                                                    Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
+                                                    SizedBox(width:3,),
+                                                    Text(                                              data[2]['dis']
+                                                      ,style: TextStyle(color: Colors.white),)
+                                                  ],),
+                                              ),
+                                              SizedBox(width: 10,),
+                                              Container(
+                                                height: 30,
+                                                width: 70,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(20),
+                                                  color: Color.fromRGBO(107, 0, 0, 1),
+                                                ),
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(width: 8,),
+                                                    Icon(Icons.adjust_rounded,color: Colors.white,size: 20,),
+                                                    SizedBox(width:3,),
+                                                    Text(                                              data[2]['per']
+                                                      ,style: TextStyle(color: Colors.white),)
+                                                  ],),
 
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                               SizedBox(width: 15,),
-                              Container(
-                                height: 300,
-                                width: 210,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromRGBO(107, 0, 0, 0.1),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        height: 150,
-                                        width: 210,
-                                        child: null,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(20),
-                                            // color: Colors.red,
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    'assets/images/momos.png'),
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      SizedBox(height: 8,),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              data[1]['name'],
-                                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              data[1]['des'],
-                                              style: TextStyle(fontSize: 14),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(height: 4,),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.orange,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              color: Colors.black54,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(height: 8,),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            SizedBox(width: 2,),
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(20),
-                                                color: Color.fromRGBO(107, 0, 0, 1),
-                                              ),
-                                              height: 30,
-                                              width: 80,
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(width: 5,),
-                                                  Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
-                                                  SizedBox(width:3,),
-                                                  Text(                                              data[1]['dis']
-                                                    ,style: TextStyle(color: Colors.white),)
-                                                ],),
-                                            ),
-                                            SizedBox(width: 10,),
-                                            Container(
-                                              height: 30,
-                                              width: 70,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(20),
-                                                color: Color.fromRGBO(107, 0, 0, 1),
-                                              ),
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(width: 8,),
-                                                  Icon(Icons.adjust_rounded,color: Colors.white,size: 20,),
-                                                  SizedBox(width:3,),
-                                                  Text(                                              data[1]['per']
-                                                    ,style: TextStyle(color: Colors.white),)
-                                                ],),
+                              GestureDetector(
 
-                                            ),
-                                          ],
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(Data[index++])));
+                                },
+                                child: Container(
+                                  height: 300,
+                                  width: 210,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color.fromRGBO(107, 0, 0, 0.1),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 150,
+                                          width: 210,
+                                          child: null,
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(20),
+                                              // color: Colors.red,
+                                              image: DecorationImage(
+                                                  image: AssetImage(
+                                                      'assets/images/momos.png'),
+                                                  fit: BoxFit.cover)),
                                         ),
-                                      )
-                                    ],
+                                        SizedBox(height: 8,),
+                                        Container(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                data[3]['name'],
+                                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                                              ),
+                                              Text(
+                                                data[3]['des'],
+                                                style: TextStyle(fontSize: 14),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 4,),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.orange,
+                                              ),
+                                              Icon(
+                                                Icons.star,
+                                                color: Colors.black54,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 8,),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              SizedBox(width: 2,),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(20),
+                                                  color: Color.fromRGBO(107, 0, 0, 1),
+                                                ),
+                                                height: 30,
+                                                width: 80,
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(width: 5,),
+                                                    Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
+                                                    SizedBox(width:3,),
+                                                    Text(                                              data[3]['dis']
+                                                      ,style: TextStyle(color: Colors.white),)
+                                                  ],),
+                                              ),
+                                              SizedBox(width: 10,),
+                                              Container(
+                                                height: 30,
+                                                width: 70,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(20),
+                                                  color: Color.fromRGBO(107, 0, 0, 1),
+                                                ),
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(width: 8,),
+                                                    Icon(Icons.adjust_rounded,color: Colors.white,size: 20,),
+                                                    SizedBox(width:3,),
+                                                    Text(                                              data[3]['per']
+                                                      ,style: TextStyle(color: Colors.white),)
+                                                  ],),
+
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1021,7 +1310,6 @@ class _HomeMenuState extends State<HomeMenu> {
                           ))
                     ],)
                 ),
-
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: Column(
@@ -1131,20 +1419,10 @@ class _HomeMenuState extends State<HomeMenu> {
                                     Text("Dessert")
                                   ],
                                 ),
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => OrderPage()));
-                                },
+
                               ),
                               InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => OrderPage()));
-                                },
+
                                 child: Column(
                                   children: [
                                     Image(
@@ -1161,12 +1439,7 @@ class _HomeMenuState extends State<HomeMenu> {
                                 ),
                               ),
                               InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => OrderPage()));
-                                },
+
                                 child: Column(
                                   children: [
                                     Image(
@@ -1183,12 +1456,7 @@ class _HomeMenuState extends State<HomeMenu> {
                                 ),
                               ),
                               InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => OrderPage()));
-                                },
+
                                 child: Column(
                                   children: [
                                     Image(
@@ -1211,7 +1479,6 @@ class _HomeMenuState extends State<HomeMenu> {
                     ],
                   ),
                 ),
-
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: Column(
@@ -1236,85 +1503,6 @@ class _HomeMenuState extends State<HomeMenu> {
                     ],
                   ),
                 ),
-
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 40,
-                        width: double.infinity,
-                        child: Text(
-                          "Dessert",
-                          style: TextStyle(
-                              color: Color.fromRGBO(107, 0, 0, 1),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        ),
-                        alignment: Alignment.centerLeft,
-                      ),
-                      Container(
-                          width: MediaQuery.of(context).size.width * 1,
-                          height: MediaQuery.of(context).size.height * .500,
-                          child:  grid = gridview(lst: dessert)
-                      ),
-                    ],
-                  ),
-                ),
-
-
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 40,
-                        width: double.infinity,
-                        child: Text(
-                          "Lunch",
-                          style: TextStyle(
-                              color: Color.fromRGBO(107, 0, 0, 1),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        ),
-                        alignment: Alignment.centerLeft,
-                      ),
-                      Container(
-                          width: MediaQuery.of(context).size.width * 1,
-                          height: MediaQuery.of(context).size.height * .500,
-                          child:  grid = gridview(lst: lunch)
-                      ),
-                    ],
-                  ),
-                ),
-
-
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 40,
-                        width: double.infinity,
-                        child: Text(
-                          "Dinner",
-                          style: TextStyle(
-                              color: Color.fromRGBO(107, 0, 0, 1),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        ),
-                        alignment: Alignment.centerLeft,
-                      ),
-                      Container(
-                          width: MediaQuery.of(context).size.width * 1,
-                          height: MediaQuery.of(context).size.height * .500,
-                          child:  grid = gridview(lst: dinner)
-                      )
-                    ],
-                  ),
-                ),
-
-
               ],
             ),
           ),
@@ -1328,24 +1516,24 @@ class _HomeMenuState extends State<HomeMenu> {
 class gridview extends StatelessWidget {
 
 
-
   final List<Map> lst;
 
   const gridview({key,  required this.lst});
+  final int index =0;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       scrollDirection: Axis.horizontal,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: 3/2,
-        crossAxisSpacing: 20,
-        crossAxisCount: 1), itemBuilder: (BuildContext context,int index){
+          childAspectRatio: 3/2,
+          crossAxisSpacing: 20,
+          crossAxisCount: 1), itemBuilder: (BuildContext context,int index){
       return Padding(
         padding: const EdgeInsets.only(left: 1,top: 1,bottom: 10,right: 10),
         child: GestureDetector(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Detail(Data[index])));
           },
           child:
 
@@ -1505,45 +1693,45 @@ class _ViewAllState extends State<ViewAll> {
         centerTitle: true,
         backgroundColor: Color.fromRGBO(107, 0, 0, 1),
       ),
-body: SingleChildScrollView(
-  child:   Padding(
-  
-    padding: const EdgeInsets.all(8.0),
-  
-    child:   Column(
-  
-      children: [
-  SizedBox(height: 10,),
-        Container(child: Image.asset('assets/images/poster1.jpg',fit: BoxFit.cover,),height: 200),
-        SizedBox(height: 10,),
+      body: SingleChildScrollView(
+        child:   Padding(
 
-        Container(child: Image.asset('assets/images/poster2.jpg',fit: BoxFit.cover,),height: 200),
-        SizedBox(height: 10,),
+          padding: const EdgeInsets.all(8.0),
 
-        Container(child: Image.asset('assets/images/poster3.jpg',fit: BoxFit.cover,),height: 200),
-        SizedBox(height: 10,),
+          child:   Column(
 
-        Container(child: Image.asset('assets/images/poster4.jpg',fit: BoxFit.cover,),height: 200),
-        SizedBox(height: 10,),
+            children: [
+              SizedBox(height: 10,),
+              Container(child: Image.asset('assets/images/poster1.jpg',fit: BoxFit.cover,),height: 200),
+              SizedBox(height: 10,),
 
-        Container(child: Image.asset('assets/images/poster5.png',fit: BoxFit.cover,),height: 200),
-        SizedBox(height: 10,),
+              Container(child: Image.asset('assets/images/poster2.jpg',fit: BoxFit.cover,),height: 200),
+              SizedBox(height: 10,),
 
-        Container(child: Image.asset('assets/images/poster6.jpg',fit: BoxFit.cover,),height: 200),
-        SizedBox(height: 10,),
+              Container(child: Image.asset('assets/images/poster3.jpg',fit: BoxFit.cover,),height: 200),
+              SizedBox(height: 10,),
 
-        Container(child: Image.asset('assets/images/poster7.png',fit: BoxFit.cover,),height: 200),
-        SizedBox(height: 10,),
+              Container(child: Image.asset('assets/images/poster4.jpg',fit: BoxFit.cover,),height: 200),
+              SizedBox(height: 10,),
 
-        Container(child: Image.asset('assets/images/poster8.jpg',fit: BoxFit.cover,),height: 200),
-        SizedBox(height: 10,),
+              Container(child: Image.asset('assets/images/poster5.png',fit: BoxFit.cover,),height: 200),
+              SizedBox(height: 10,),
 
-      ],
-  
-    ),
-  
-  ),
-),
+              Container(child: Image.asset('assets/images/poster6.jpg',fit: BoxFit.cover,),height: 200),
+              SizedBox(height: 10,),
+
+              Container(child: Image.asset('assets/images/poster7.png',fit: BoxFit.cover,),height: 200),
+              SizedBox(height: 10,),
+
+              Container(child: Image.asset('assets/images/poster8.jpg',fit: BoxFit.cover,),height: 200),
+              SizedBox(height: 10,),
+
+            ],
+
+          ),
+
+        ),
+      ),
     );
   }
 }
